@@ -1,14 +1,20 @@
 ---
 title: "About"
 description: "About Open Contemporary Art Center"
+layout: "single"
 ---
 
-## Open Contemporary Art Center
 
-Open is an artist-run contemporary art space located in Tainan's Zhongxi District, dedicated to promoting contemporary art, fostering international artist collaborations, and cultural exchange. We believe art serves as a medium for communication, critical thinking, and innovation. Through exhibitions, artist residency programs, and diverse art activities, we bring vitality and new possibilities to Tainan's artistic ecosystem.
+Open-Contemporary Art Center (OCAC) is an artist-run space founded in Banciao (Taiwan) in 2001. Our tasks include curation, interdisciplinary exchange, art forum, study and publication. We believe that contemporary art permeates into our lives in a wider range than ever. People need a significant clue of “what is contemporary art?” with a full imagination. We look at this and attempt to dedicated ourselves to create diverse forms of which the public interacted with contemporary art.
 
-As an independently operated contemporary art center, Open provides a platform for both local and international artists to create, exhibit, and collaborate. Our artist residency program welcomes creative practitioners from around the world to Tainan for deep artistic exchange and creation. Through diverse partnerships and curatorial initiatives, we aim to build an open, inclusive artistic community grounded in dialogue and creative practice.
+## Curation
 
-Open is located at No. 20, Lane 43, Nanmen Road, West Central District, Tainan—a space rich with historical significance. We host contemporary art exhibitions, workshops, lectures, and artist residency projects here, seeking to deepen understanding and practice of contemporary art through these activities.
+OCAC was first established by a group of artist-curators to illustrate our fundamental philosophy in art. We as artists feel most obligated to (or capable of) develop a theory of practice. Reflecting on art production and contemporary society, our curatorial purpose has always been discovering and putting forwards new perspectives. In the process of thinking carefully on Taiwan’s (art) feedback to the world in terms of art production, we examine our contemporary art under the influence of globalization in art.
 
-We warmly invite you to visit Open and explore the diverse dimensions of contemporary art with us. Experience together the development and evolution of Tainan's vibrant art scene.
+## Art/Artist Studio
+
+Artist studio today may be the most openly liberal space among others. OCAC stands for a public space and a union of artists, which cannot be separate. We expect to do more than just simple production, storage and exhibitions in the art space, but certainly to strive to generate more conversation, radical thoughts and guerrilla activities. Through artists’ practice in the space, we attempt to bring up a proposal for living against capitalism in the contemporary society.
+
+## Community Dialogue
+
+With a trend of the public involved art, contemporary art becomes vital and almost open to any non-art fields. OCAC is committed to opening up a dialogue of new possibilities and exchange. We continue to promote art in different communities via artists’ active participation and diverse practices in culture, which bring us to explore art’s influence on people in the reality.

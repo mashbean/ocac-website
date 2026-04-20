@@ -23,13 +23,15 @@ defaultContentLanguageInSubdir = false
       description = "Open Contemporary Art Center — an independent art space in Tainan, Taiwan dedicated to international contemporary art exchanges, exhibitions, and residency programs."
 
 [params]
-  logo_black = "/images/ui/logo-b.png"
-  logo_white = "/images/ui/logo-w.png"
-  logo_mobile = "/images/ui/mlogo.png"
-  footer_logo = "/images/ui/footerlogo.png"
+  logo_primary = "/images/ui/logo-primary.png"
+  logo_primary_white = "/images/ui/logo-primary-white.png"
   logo_wordmark = "/images/ui/logo-wordmark.svg"
   logo_stack = "/images/ui/logo-stack.svg"
-  logo_primary = "/images/ui/logo-b.png"
+  # legacy aliases (kept for any template still referencing old names)
+  logo_black = "/images/ui/logo-primary.png"
+  logo_white = "/images/ui/logo-primary-white.png"
+  logo_mobile = "/images/ui/logo-primary.png"
+  footer_logo = "/images/ui/logo-primary.png"
 
 [markup]
   [markup.goldmark]

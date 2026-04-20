@@ -158,14 +158,22 @@ img { max-width: 100%; height: auto; display: block; }
 .header-inner {
   max-width: var(--container);
   margin: 0 auto;
-  padding: 18px var(--gutter);
+  padding: 16px var(--gutter);
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.site-logo img { height: 26px; width: auto; }
-.logo-mobile { display: none; }
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+.site-logo img { display: block; }
+.site-logo .logo-mark { height: 52px; width: auto; }
+.site-logo .logo-desktop { height: 44px; width: auto; }
+.site-logo .logo-mobile { display: none; height: 44px; width: auto; }
 
 .site-nav {
   display: flex;
@@ -692,7 +700,7 @@ section.home-section:has(a[href*="/artspaces/"]) .items-grid { grid-template-col
   gap: var(--space-6);
   flex-wrap: wrap;
 }
-.footer-logo img { height: 22px; width: auto; }
+.footer-logo img { height: 56px; width: auto; }
 
 .footer-info p {
   font-family: var(--font-body);
@@ -879,9 +887,11 @@ section.home-section:has(a[href*="/artspaces/"]) .items-grid { grid-template-col
     --grid-gap: 12px;
   }
 
-  .header-inner { padding: 14px var(--gutter); min-height: 64px; }
-  .logo-desktop { display: none; }
-  .logo-mobile { display: block; height: 56px; }
+  .header-inner { padding: 12px var(--gutter); min-height: 64px; }
+  .site-logo { gap: 10px; }
+  .site-logo .logo-mark { height: 44px; }
+  .site-logo .logo-desktop { display: none; }
+  .site-logo .logo-mobile { display: none; }
   .menu-toggle { display: block; }
 
   /* Drawer */

@@ -1,6 +1,7 @@
 <header class="site-header" id="site-header">
   <div class="header-inner">
     <a href="{{ .Site.Home.RelPermalink }}" class="site-logo">
+      <img src="{{ .Site.Params.logo_primary }}" alt="{{ .Site.Title }}" class="logo-mark">
       <img src="{{ .Site.Params.logo_wordmark }}" alt="{{ .Site.Title }}" class="logo-desktop">
       <img src="{{ .Site.Params.logo_stack }}" alt="{{ .Site.Title }}" class="logo-mobile">
     </a>
