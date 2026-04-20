@@ -1,13 +1,15 @@
 <header class="site-header" id="site-header">
   <div class="header-inner">
     <a href="{{ .Site.Home.RelPermalink }}" class="site-logo">
-      <img src="{{ .Site.Params.logo_black }}" alt="{{ .Site.Title }}" class="logo-desktop">
-      <img src="{{ .Site.Params.logo_mobile }}" alt="{{ .Site.Title }}" class="logo-mobile">
+      <img src="{{ .Site.Params.logo_wordmark }}" alt="{{ .Site.Title }}" class="logo-desktop">
+      <img src="{{ .Site.Params.logo_stack }}" alt="{{ .Site.Title }}" class="logo-mobile">
     </a>
 
-    <button class="menu-toggle" aria-label="Menu" aria-expanded="false">
+    <button class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">
       <span></span><span></span><span></span>
     </button>
+
+    <div class="nav-overlay" aria-hidden="true"></div>
 
     <nav class="site-nav" id="site-nav">
       <ul class="nav-list">

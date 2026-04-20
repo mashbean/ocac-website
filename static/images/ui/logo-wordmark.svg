@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 80" preserveAspectRatio="xMinYMid meet">
+  <style>
+    .zh { font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif; font-weight: 700; font-size: 32px; fill: #000; letter-spacing: 2px; }
+    .en { font-family: 'Montserrat', Arial, sans-serif; font-weight: 900; font-size: 14px; fill: #000; letter-spacing: 2px; }
+  </style>
+  <text x="0" y="40" class="zh">打開—當代藝術工作站</text>
+  <text x="0" y="68" class="en">OPEN CONTEMPORARY ART CENTER</text>
+</svg>

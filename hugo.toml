@@ -27,6 +27,9 @@ defaultContentLanguageInSubdir = false
   logo_white = "/images/ui/logo-w.png"
   logo_mobile = "/images/ui/mlogo.png"
   footer_logo = "/images/ui/footerlogo.png"
+  logo_wordmark = "/images/ui/logo-wordmark.svg"
+  logo_stack = "/images/ui/logo-stack.svg"
+  logo_primary = "/images/ui/logo-b.png"
 
 [markup]
   [markup.goldmark]

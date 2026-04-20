@@ -9,13 +9,41 @@
   // ---------- Mobile Menu ----------
   var toggle = document.querySelector('.menu-toggle');
   var nav = document.getElementById('site-nav');
+  var overlay = document.querySelector('.nav-overlay');
+
+  function closeDrawer() {
+    if (!toggle || !nav) return;
+    toggle.setAttribute('aria-expanded', 'false');
+    nav.classList.remove('is-open');
+    if (overlay) overlay.classList.remove('is-active');
+    document.body.classList.remove('drawer-open');
+  }
+
+  function openDrawer() {
+    if (!toggle || !nav) return;
+    toggle.setAttribute('aria-expanded', 'true');
+    nav.classList.add('is-open');
+    if (overlay) overlay.classList.add('is-active');
+    document.body.classList.add('drawer-open');
+  }
+
   if (toggle && nav) {
     toggle.addEventListener('click', function() {
       var expanded = this.getAttribute('aria-expanded') === 'true';
-      this.setAttribute('aria-expanded', !expanded);
-      nav.classList.toggle('is-open');
+      if (expanded) closeDrawer(); else openDrawer();
     });
   }
+  if (overlay) overlay.addEventListener('click', closeDrawer);
+  // Close on link tap inside drawer
+  nav && nav.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      if (window.matchMedia('(max-width: 640px)').matches) closeDrawer();
+    });
+  });
+  // Close on Escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && nav && nav.classList.contains('is-open')) closeDrawer();
+  });
 
   // ---------- Scroll: header shadow ----------
   var header = document.getElementById('site-header');
