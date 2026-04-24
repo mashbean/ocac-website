@@ -6,6 +6,7 @@ section: "archive"
 image: "/images/reports/2024/p016-i00-8f3566e4ecb8.jpeg"
 tags: ["2024"]
 
+
 ---
 **Event (auto-generated stub; English description pending):**
 
@@ -20,19 +21,7 @@ tags: ["2024"]
 
 參與者|林安琪
 
-活動性質|座談
-
-在越南藝術團體 ba-bau AIR 的協助下,林安琪的進駐計劃從偏
-
-遠的山區展開。她與當地黑苗族人一起生活和勞動,體驗著他
-
-們在好客與防備之間的平衡。這段旅程也回應著她對身份認同、
-
-族群歷史的探索,並比較族群歷史發展的脈絡,以及對身體勞動
-
-性的感知,促使她逐步拓展女人社「保護空間」概念,並試圖開啟
-
-和思辨一個更遼闊且具包容性的酷兒空間。
+活動性質|座談 在越南藝術團體 ba-bau AIR 的協助下,林安琪的進駐計劃從偏 遠的山區展開。她與當地黑苗族人一起生活和勞動,體驗著他 們在好客與防備之間的平衡。這段旅程也回應著她對身份認同、 族群歷史的探索,並比較族群歷史發展的脈絡,以及對身體勞動 性的感知,促使她逐步拓展女人社「保護空間」概念,並試圖開啟 和思辨一個更遼闊且具包容性的酷兒空間。
 
 蜿蜒集系列活動
 
@@ -44,8 +33,6 @@ tags: ["2024"]
 
 ![](/images/reports/2024/p016-i02-cc47901cd61b.jpeg)
 
-
 ---
 
-*Auto-generated from OCAC’s 2024 annual closing report; English translation and image matching pending.*
-
+*Compiled from OCAC’s 2024 annual closing report; text and image matching are being refined.*

@@ -6,6 +6,7 @@ section: "archive"
 image: "/images/reports/2024/p012-i03-0e123c5704e6.jpeg"
 tags: ["2024"]
 
+
 ---
 **Event (auto-generated stub; English description pending):**
 
@@ -20,17 +21,7 @@ tags: ["2024"]
 
 參與者|江源祥
 
-活動性質|座談
-
-蜿蜒集系列活動
-
-江源祥推估著勞動者的移動線,沿著紅河向外輸出的路徑,來到一個勞動者聚集地
-
-,試著不帶預設立場看見這些勞動者對兩地經濟移動的思考。他於本次活動分享一路上
-
-的觀察檔案,建構台灣與越南之間「位移」、「逃逸」的網絡,反映有著相同出發點卻有相
-
-異結果的兩種行動,以及創作者的身體如何回應當代勞動者所面對的現實處境。
+活動性質|座談 蜿蜒集系列活動 江源祥推估著勞動者的移動線,沿著紅河向外輸出的路徑,來到一個勞動者聚集地 ,試著不帶預設立場看見這些勞動者對兩地經濟移動的思考。他於本次活動分享一路上 的觀察檔案,建構台灣與越南之間「位移」、「逃逸」的網絡,反映有著相同出發點卻有相 異結果的兩種行動,以及創作者的身體如何回應當代勞動者所面對的現實處境。
 
 ### Image record
 
@@ -42,8 +33,6 @@ tags: ["2024"]
 
 ![](/images/reports/2024/p012-i03-0e123c5704e6.jpeg)
 
-
 ---
 
-*Auto-generated from OCAC’s 2024 annual closing report; English translation and image matching pending.*
-
+*Compiled from OCAC’s 2024 annual closing report; text and image matching are being refined.*
