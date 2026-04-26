@@ -7,7 +7,7 @@
   {{ $colors := slice "#003882" "#1f4e3d" "#4e2031" "#2d1f4e" "#4e3d1f" "#1f3d4e" "#3d1f4e" }}
 
   <div class="items-grid">
-    {{ range .Paginator.Pages }}
+    {{ range .Pages }}
     {{ $idx := default 0 ($.Scratch.Get "i") }}
     {{ $color := index $colors (mod $idx (len $colors)) }}
     {{ $.Scratch.Add "i" 1 }}
@@ -35,6 +35,5 @@
     {{ if eq .Lang "zh" }}沒有符合條件的項目{{ else }}No items found{{ end }}
   </div>
 
-  {{ template "_internal/pagination.html" . }}
 </div>
 {{ end }}

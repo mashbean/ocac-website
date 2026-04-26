@@ -30,7 +30,7 @@
 
   {{ $i := 0 }}
   <div class="items-grid" id="items-grid">
-    {{ range .Paginator.Pages }}
+    {{ range .Pages }}
     {{/* Repeating block of 7: land→port→port→sm→land→port→sm (71% md, 29% sm) */}}
     {{ $pos       := mod $i 7 }}
     {{ $sizeClass := "card-md card-md--portrait" }}
@@ -77,6 +77,5 @@
     {{ if eq .Lang "zh" }}沒有符合條件的項目{{ else }}No items found{{ end }}
   </div>
 
-  {{ template "_internal/pagination.html" . }}
 </div>
 {{ end }}
