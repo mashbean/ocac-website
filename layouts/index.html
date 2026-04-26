@@ -1,5 +1,7 @@
 {{ define "main" }}
 
+{{ $colors := slice "#003882" "#1f4e3d" "#4e2031" "#2d1f4e" "#4e3d1f" "#1f3d4e" "#3d1f4e" }}
+
 {{/* Latest Archive */}}
 <section class="home-section">
   <div class="container">
@@ -7,15 +9,23 @@
       <h2 class="section-title">Archive</h2>
       <a href="{{ if eq .Lang "en" }}/en{{ end }}/archive/" class="section-more">View All →</a>
     </div>
+    {{ $archivePages := first 8 (where .Site.RegularPages "Section" "archive") }}
+    {{ $i := 0 }}
     <div class="items-grid">
-      {{ $archiveSection := "archive" }}
-      {{ range first 8 (where .Site.RegularPages "Section" $archiveSection) }}
-      <article class="item-card">
+      {{ range $archivePages }}
+      {{ $pos  := mod $i 5 }}
+      {{ $size := "sm" }}
+      {{ if eq $pos 0 }}{{ $size = "lg" }}{{ end }}
+      {{ if eq $pos 1 }}{{ $size = "md" }}{{ end }}
+      {{ $color := index $colors (mod $i (len $colors)) }}
+      <article class="item-card card-{{ $size }}">
         <a href="{{ .RelPermalink }}">
-          {{ with .Params.image }}
+          {{ if .Params.image }}
           <div class="item-thumb">
-            <img src="{{ . }}" alt="{{ $.Title }}" loading="lazy">
+            <img src="{{ .Params.image }}" alt="{{ .Title }}" loading="lazy">
           </div>
+          {{ else }}
+          <div class="item-thumb item-thumb--color" style="background-color:{{ $color }};"></div>
           {{ end }}
           <div class="item-info">
             {{ with .Params.date_range }}
@@ -24,9 +34,17 @@
             <div class="item-date">{{ .Date.Format "2006.01.02" }}</div>
             {{ end }}
             <h3 class="item-title">{{ .Title }}</h3>
+            {{ with .Params.subtitle }}
+            <div class="item-intro">{{ . }}</div>
+            {{ else }}
+            {{ with .Plain }}
+            <p class="item-excerpt">{{ . | truncate 90 "…" }}</p>
+            {{ end }}
+            {{ end }}
           </div>
         </a>
       </article>
+      {{ $i = add $i 1 }}
       {{ end }}
     </div>
   </div>
@@ -41,7 +59,7 @@
     </div>
     <div class="items-grid">
       {{ range first 8 (where .Site.RegularPages "Section" "artists") }}
-      <article class="item-card">
+      <article class="item-card card-md">
         <a href="{{ .RelPermalink }}">
           {{ with .Params.image }}
           <div class="item-thumb">
@@ -70,7 +88,7 @@
     </div>
     <div class="items-grid">
       {{ range first 4 (where .Site.RegularPages "Section" "artspaces") }}
-      <article class="item-card">
+      <article class="item-card card-md">
         <a href="{{ .RelPermalink }}">
           {{ with .Params.image }}
           <div class="item-thumb">

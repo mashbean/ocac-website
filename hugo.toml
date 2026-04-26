@@ -51,7 +51,7 @@ defaultContentLanguageInSubdir = false
   region = "regions"
 
 [pagination]
-  pagerSize = 24
+  pagerSize = 30
 
 [menu]
   [[menu.main]]
