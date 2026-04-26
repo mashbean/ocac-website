@@ -2,22 +2,32 @@
 title: "邊境旅行 PETAMU Project"
 date: 2018-08-30T07:01:35+08:00
 draft: false
-tags: ["2018"]
 section: archive
 k2_id: 427
 alias: "petamu-project"
 image: "/images/ui/placeholder-white.png"
+tags: ["2018"]
 ---
-「PETAMU」這個標題取自（印尼文與馬來文的）「你的地圖」（Peta Kamu）的口語用法。在《邊境旅行PETAMU Project》計劃裡，我們試圖以「馬來群島」（Nusantara）的通用語（lingua franca，在此指「馬來語」）為引線，來打開一種觀看東南亞地圖的另類取徑。在這種另類的視野裡，打開-當代藝術工作站與「《數位荒原》駐站暨群島資料庫（Nusantara Archive）」合作，從2016年到2017年之間各自於印尼、馬來西亞半島的實踐歷程，或透過藝術家進駐、訪談、創作，以及與研究員／策展人合作翻譯、訪談、研究等工作，如同在同一張地圖各自發現的不同旅人視野，進而匯聚累積，而將資料庫重新對應至地圖上的特定區塊或邊境。
+《邊境旅行 PETAMU Project》是打開—當代藝術工作站於 2018 年發起的展覽與駐地計畫。標題「PETAMU」取自馬來語、印尼語的口語用法 *Peta Kamu*（你的地圖），希望以「馬來群島」（Nusantara）的通用語（lingua franca，在此指馬來語）作為引線，打開一種觀看東南亞的另類取徑。
 
-「Petamu」一字首先可理解為「群島資料庫」藝術家所指稱的「你的地圖」，其中「Peta」有「地圖」的意思，「Tamu」更可以解釋為「訪客」的意思。在跨國／文化的合作部份，我們邀請了符芳俊（馬來西亞）／曾紫詒（台灣）、林猶進（Jeffrey Lim；馬來西亞）／Posak Jodian（台灣）、Syafiatudina（印尼，合作文字作者）及吳其育（台灣）等四組藝術家與創作者，透過進駐創作與共同合作的旅程促成跨文化的交流方案，探索每個邊緣的複雜關係網絡，進而翻轉、開展各種偶遇與異質的連結。
+In the *PETAMU Project*, we use the Malay language—a *lingua franca* across Malaysia and the Indonesian archipelago—as both project name and working language. Through residency, dialogue, screening and exhibition, OCAC invites artists from Southeast Asia and Taiwan to spend a month together, re-examining the host/guest relations within Asia.
 
-展期 ｜ 2018/09/01（六) - 09/30（日）
-開幕 ｜ 2018/09/01（六) 6:00 PM
-地點 ｜ 打開-當代藝術工作站
-地址 ｜ 台北市大同區甘州街25號（近大橋頭站2號出口）
-開放時間 ｜ 每週三 - 日 14:00 - 20:00
+## 計畫背景
 
-參展藝術家｜
+打開—當代藝術工作站與《數位荒原》駐站暨群島資料庫（Nusantara Archive）合作，整理 2016–2017 年間於印尼、馬來西亞半島的工作歷程：藝術家進駐、訪談、創作，以及與研究員／策展人合作翻譯、研究等。如同同一張地圖上各自旅行的旅人視野，匯聚為對東南亞區域的另類測繪。
 
-符芳俊（馬來西亞）/曾紫詒（台灣)、林猶進（Jeffrey Lim；馬來西亞）／Posak Jodian（台灣)、Syafiatudina（印尼，合作文字作者）及吳其育（台灣）
+「Petamu」一詞首先可理解為群島資料庫藝術家所稱的「你的地圖」——其中 *Peta* 意指地圖，*Tamu* 則可解釋為訪客。在跨國／跨文化的合作上，本計畫邀請四組藝術家與創作者透過進駐與共同合作的旅程，探索每個邊緣的複雜關係網絡，進而翻轉、開展各種偶遇與異質的連結。
+
+## 展覽資訊
+
+- **展期**　2018/09/01（六）— 09/30（日）
+- **開幕**　2018/09/01（六）18:00
+- **地點**　打開—當代藝術工作站（台北市大同區甘州街 25 號，近大橋頭站 2 號出口）
+- **開放時間**　每週三–日 14:00–20:00
+
+## 參展藝術家
+
+- 符芳俊（馬來西亞）／曾紫詒（台灣）
+- 林猷進 Jeffrey Lim（馬來西亞）／Posak Jodian（台灣）
+- Syafiatudina（印尼，合作文字作者）
+- 吳其育（台灣）

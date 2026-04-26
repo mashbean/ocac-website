@@ -1,26 +1,23 @@
 ---
 title: "Longtruk: in the gap, in between"
-date: "2023-12-31T00:00:00+08:00"
+date: "2023-09-16T00:00:00+08:00"
 draft: false
 section: "archive"
-image: "/images/reports/2023/p017-i00-3a8a67d2212d.jpeg"
-tags: ["long-term-project", "2023"]
-
+image: "/images/reports/2023/p041-i00-1f50ab1b1010.jpeg"
+tags: ["2023"]
 ---
-‘Longtruk: in the gap, in between’ is a 2023 cross-border curatorial research project, extending OCAC’s long-term engagement with Asia / Southeast Asia.
+*Longtruk: in the gap, in between* is a transnational curatorial-research project executed in 2023, extending OCAC's long-running work in Asia and Southeast Asia. The project focuses on the residency and field practice of Baan Noorg Collaborative Arts & Culture in Thailand. A team from Taiwan travelled to Ratchaburi for in-depth interviews, research and a public talk, responding to the working method of "in the gap, in between" — how art can unfold within the tensions between city/countryside, state/civic, local/diasporic, regional/global.
 
-## Image record
+- **Organisers**　Open Contemporary Art Center; Baan Noorg Collaborative Arts & Culture
+- **Date**　16 Sep 2023
+- **Format**　International exchange talk
+- **Participants**　12
+- **Sharing artists**　Krittaporn Mahaweerarat, Nanut Thanapornrapee, Thapong Srisai, members of Baan Noorg
 
-![](/images/reports/2023/p017-i00-3a8a67d2212d.jpeg)
+## Project context
 
-![](/images/reports/2023/p017-i02-8dd1773ec40c.jpeg)
+OCAC has long worked alongside artistic practices that take place at the edges of Asia — rural towns, urban peripheries, diasporic communities. Baan Noorg's method is rooted in the small town of Ratchaburi, in continued collaboration with residents, youth and artists, returning art to the gaps of everyday life: temple courtyards, streets, markets, schools. *Longtruk* enters from this long arc of practice and asks how independent Asian art organisations can work outside mainstream institutions, taking "the gap" as a method.
 
-![](/images/reports/2023/p017-i03-b20004d5355d.jpeg)
+## Annual summary
 
-![](/images/reports/2023/p017-i04-76b9ed784847.jpeg)
-
-
----
-
-*This long-term project page is compiled from OCAC’s 2019–2025 closing reports; English text and image–event matching are still being refined.*
-
+**2023**　A Taiwan team visited Ratchaburi for several days of research interviews; on 16 September the group convened an online sharing session, inviting three Baan Noorg artists to present their local practice in dialogue with the Taiwan art community.
