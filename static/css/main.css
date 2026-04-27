@@ -372,11 +372,11 @@ img { max-width: 100%; height: auto; display: block; }
   padding: var(--space-3) var(--space-4);
 }
 .item-card.card-sm .item-title {
-  font-size: var(--fs-lead);
+  font-size: 20px;
   font-weight: 600;
 }
 .item-card.card-sm .item-excerpt {
-  font-size: var(--fs-base);
+  font-size: 14px;
   -webkit-line-clamp: 2;
 }
 
@@ -392,7 +392,7 @@ img { max-width: 100%; height: auto; display: block; }
 .item-title {
   order: 1;
   font-family: var(--font-display);
-  font-size: var(--fs-h1);
+  font-size: 20px;
   font-weight: 600;
   line-height: var(--lh-snug);
   color: var(--color-text);
@@ -403,7 +403,7 @@ img { max-width: 100%; height: auto; display: block; }
 .item-intro,
 .item-excerpt {
   order: 2;
-  font-size: var(--fs-body);
+  font-size: 14px;
   line-height: 1.65;
   color: var(--color-text-muted);
   display: -webkit-box;
@@ -418,7 +418,7 @@ img { max-width: 100%; height: auto; display: block; }
   margin-top: auto;
   padding-top: var(--space-8);
   font-family: var(--font-en);
-  font-size: var(--fs-caption);
+  font-size: 12px;
   font-weight: 400;
   color: var(--color-text-light);
   letter-spacing: 0.3px;
