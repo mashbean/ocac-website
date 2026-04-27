@@ -1,80 +1,71 @@
 {{ define "main" }}
 <div class="section-page">
-  <div class="page-header">
-    <h1 class="page-title">{{ .Title }}</h1>
-  </div>
+  {{ $grouped := .Pages.GroupByDate "2006" }}
 
-  {{/* Year-based filter bar */}}
+  {{/* Build ordered year list for the switcher */}}
   {{ $years := slice }}
-  {{ range .Pages }}
-    {{ if not .Date.IsZero }}
-      {{ $year := .Date.Format "2006" }}
-      {{ if not (in $years $year) }}
-        {{ $years = $years | append $year }}
-      {{ end }}
-    {{ end }}
-  {{ end }}
-  {{ if gt (len $years) 1 }}
-  <div class="filter-bar" id="filter-bar">
-    <a href="#" class="is-active" data-filter="all">All</a>
-    <span class="filter-sep">|</span>
-    {{ range sort $years "value" "desc" }}
-    <a href="#" data-filter="{{ . }}">{{ . }}</a>
-    <span class="filter-sep">|</span>
-    {{ end }}
+  {{ range $grouped }}{{ $years = $years | append .Key }}{{ end }}
+
+  <div class="page-header archive-header" id="archive-header">
+    <h1 class="page-title">{{ .Title }}</h1>
+    <div class="year-switcher" id="year-switcher" data-years="{{ delimit $years "," }}">
+      <button class="year-arrow" id="year-prev" aria-label="Previous year">‹</button>
+      <span class="year-current" id="year-current"></span>
+      <button class="year-arrow" id="year-next" aria-label="Next year">›</button>
+    </div>
   </div>
-  {{ end }}
 
   {{/* Placeholder colours — cycle per card */}}
-  {{ $colors := slice "#003882" "#1f4e3d" "#4e2031" "#2d1f4e" "#4e3d1f" "#1f3d4e" "#3d1f4e" }}
+  {{ $colors := slice "#003882" "#1f4e3d" "#4e2031" "#2d1f4e" "#4e3d1f" "#1f3d4e" "#3d1f4e" "#3d1f4e" }}
 
-  {{ $i := 0 }}
-  <div class="items-grid" id="items-grid">
-    {{ range .Pages }}
-    {{/* Repeating block of 7: land→port→port→sm→land→port→sm (71% md, 29% sm) */}}
-    {{ $pos       := mod $i 7 }}
-    {{ $sizeClass := "card-md card-md--portrait" }}
-    {{ if or (eq $pos 0) (eq $pos 4) }}{{ $sizeClass = "card-md card-md--landscape" }}{{ end }}
-    {{ if or (eq $pos 3) (eq $pos 6) }}{{ $sizeClass = "card-sm" }}{{ end }}
-    {{ $color := index $colors (mod $i (len $colors)) }}
+  <div class="year-stage" id="year-stage">
+    {{ range $grouped }}
+    <section class="year-section" id="year-{{ .Key }}" data-year="{{ .Key }}">
+      {{ $i := 0 }}
+      <div class="items-grid">
+        {{ range .Pages }}
+        {{ $pos       := mod $i 7 }}
+        {{ $sizeClass := "card-md card-md--portrait" }}
+        {{ if or (eq $pos 0) (eq $pos 4) }}{{ $sizeClass = "card-md card-md--landscape" }}{{ end }}
+        {{ if or (eq $pos 3) (eq $pos 6) }}{{ $sizeClass = "card-sm" }}{{ end }}
+        {{ $color := index $colors (mod $i (len $colors)) }}
 
-    <article class="item-card {{ $sizeClass }}" data-year="{{ .Date.Format "2006" }}" {{ with .Params.tags }}data-tags="{{ delimit . "," }}"{{ end }}>
-      <a href="{{ .RelPermalink }}">
-        {{ if .Params.image }}
-        <div class="item-thumb">
-          <img src="{{ .Params.image }}" alt="{{ .Title }}" loading="lazy">
-        </div>
-        {{ else }}
-        <div class="item-thumb item-thumb--color" style="background-color:{{ $color }};"></div>
+        <article class="item-card {{ $sizeClass }}">
+          <a href="{{ .RelPermalink }}">
+            {{ if .Params.image }}
+            <div class="item-thumb">
+              <img src="{{ .Params.image }}" alt="{{ .Title }}" loading="lazy">
+            </div>
+            {{ else }}
+            <div class="item-thumb item-thumb--color" style="background-color:{{ $color }};"></div>
+            {{ end }}
+            <div class="item-info">
+              {{ with .Params.date_range }}
+              <div class="item-date">{{ . }}</div>
+              {{ else }}
+              {{ if not .Date.IsZero }}
+              <div class="item-date">{{ .Date.Format "2006.01.02" }}</div>
+              {{ end }}
+              {{ end }}
+              <h3 class="item-title">{{ .Title }}</h3>
+              {{ with .Params.subtitle }}
+              <div class="item-intro">{{ . }}</div>
+              {{ else }}
+              {{ with .Plain }}
+              {{ $firstPara := index (split . "\n\n") 0 }}
+              {{ with $firstPara }}
+              <p class="item-excerpt">{{ . | truncate 120 "…" }}</p>
+              {{ end }}
+              {{ end }}
+              {{ end }}
+            </div>
+          </a>
+        </article>
+        {{ $i = add $i 1 }}
         {{ end }}
-        <div class="item-info">
-          {{ with .Params.date_range }}
-          <div class="item-date">{{ . }}</div>
-          {{ else }}
-          {{ if not .Date.IsZero }}
-          <div class="item-date">{{ .Date.Format "2006.01.02" }}</div>
-          {{ end }}
-          {{ end }}
-          <h3 class="item-title">{{ .Title }}</h3>
-          {{ with .Params.subtitle }}
-          <div class="item-intro">{{ . }}</div>
-          {{ else }}
-          {{ with .Plain }}
-          {{ $firstPara := index (split . "\n\n") 0 }}
-          {{ with $firstPara }}
-          <p class="item-excerpt">{{ . | truncate 120 "…" }}</p>
-          {{ end }}
-          {{ end }}
-          {{ end }}
-        </div>
-      </a>
-    </article>
-    {{ $i = add $i 1 }}
+      </div>
+    </section>
     {{ end }}
-  </div>
-
-  <div class="no-results" id="no-results" style="display:none;">
-    {{ if eq .Lang "zh" }}沒有符合條件的項目{{ else }}No items found{{ end }}
   </div>
 
 </div>

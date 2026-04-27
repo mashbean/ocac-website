@@ -92,39 +92,46 @@
     observer.observe(card);
   });
 
-  // ---------- Year Filter ----------
-  var filterBar = document.getElementById('filter-bar');
-  var grid = document.getElementById('items-grid');
-  var noResults = document.getElementById('no-results');
+  // ---------- Archive Year Switcher ----------
+  var switcher = document.getElementById('year-switcher');
+  if (switcher) {
+    var swYears     = switcher.dataset.years.split(',');
+    var swPrev      = document.getElementById('year-prev');
+    var swNext      = document.getElementById('year-next');
+    var swCurrent   = document.getElementById('year-current');
+    var swStage     = document.getElementById('year-stage');
+    var swIdx       = 0;
 
-  if (filterBar && grid) {
-    var filterLinks = filterBar.querySelectorAll('a[data-filter]');
-    var cards = grid.querySelectorAll('.item-card');
+    var swShow = function(idx) {
+      var outgoing = swStage.querySelector('.year-section.is-active');
+      var incoming = document.getElementById('year-' + swYears[idx]);
+      if (!incoming) return;
 
-    filterLinks.forEach(function(link) {
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-        var filter = this.getAttribute('data-filter');
+      if (outgoing && outgoing !== incoming) {
+        outgoing.classList.remove('is-active');
+        outgoing.classList.add('is-leaving');
+        setTimeout(function() { outgoing.classList.remove('is-leaving'); }, 220);
+      }
 
-        // Update active state
-        filterLinks.forEach(function(l) { l.classList.remove('is-active'); });
-        this.classList.add('is-active');
+      incoming.classList.add('is-active');
+      swIdx = idx;
+      swCurrent.textContent = swYears[idx];
+      swPrev.disabled = (idx === 0);
+      swNext.disabled = (idx === swYears.length - 1);
 
-        // Filter cards
-        var visibleCount = 0;
-        cards.forEach(function(card) {
-          var year = card.getAttribute('data-year');
-          var show = (filter === 'all') || (year === filter);
-          card.style.display = show ? '' : 'none';
-          if (show) visibleCount++;
-        });
+      // Scroll to top of content area (skip header + sticky bar)
+      var siteH    = (document.getElementById('site-header') || {}).offsetHeight || 52;
+      var archiveH = (document.getElementById('archive-header') || {}).offsetHeight || 40;
+      var stageTop = swStage.getBoundingClientRect().top + window.scrollY;
+      if (outgoing) {
+        window.scrollTo({ top: stageTop - siteH - archiveH - 8, behavior: 'smooth' });
+      }
+    };
 
-        // Show/hide no results
-        if (noResults) {
-          noResults.style.display = visibleCount === 0 ? '' : 'none';
-        }
-      });
-    });
+    swPrev.addEventListener('click', function() { swShow(swIdx - 1); });
+    swNext.addEventListener('click', function() { swShow(swIdx + 1); });
+
+    swShow(0);
   }
 
   // ---------- Image Lightbox ----------

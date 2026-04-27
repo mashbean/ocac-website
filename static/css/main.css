@@ -345,11 +345,6 @@ img { max-width: 100%; height: auto; display: block; }
 .item-card.card-md .item-thumb {
   aspect-ratio: 4 / 3;
 }
-.item-card.card-md .item-title {
-  font-size: var(--fs-h3);
-  font-weight: 600;
-}
-
 /* Medium landscape modifier: 1 column, 16:9 thumb */
 .item-card.card-md--landscape .item-thumb {
   aspect-ratio: 16 / 9;
@@ -384,37 +379,46 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* ---------- Card text ---------- */
 .item-info {
-  padding: var(--space-4) var(--space-4) var(--space-5);
+  padding: var(--space-8);
   flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
-.item-date {
-  font-family: var(--font-en);
-  font-size: var(--fs-label);
-  font-weight: 400;
-  color: var(--color-text-muted);
-  margin-bottom: var(--space-2);
-  letter-spacing: 0.3px;
-}
-
+/* Title — top of info area */
 .item-title {
+  order: 1;
   font-family: var(--font-display);
-  font-size: var(--fs-h3);
-  font-weight: 500;
+  font-size: var(--fs-h1);
+  font-weight: 600;
   line-height: var(--lh-snug);
   color: var(--color-text);
+  margin-bottom: var(--space-3);
 }
 
+/* Excerpt / subtitle — middle */
 .item-intro,
 .item-excerpt {
-  margin-top: var(--space-2);
-  font-size: var(--fs-caption);
-  line-height: 1.6;
+  order: 2;
+  font-size: var(--fs-body);
+  line-height: 1.65;
   color: var(--color-text-muted);
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+/* Date — pushed to bottom with margin-top: auto */
+.item-date {
+  order: 3;
+  margin-top: auto;
+  padding-top: var(--space-8);
+  font-family: var(--font-en);
+  font-size: var(--fs-caption);
+  font-weight: 400;
+  color: var(--color-text-light);
+  letter-spacing: 0.3px;
 }
 
 /* CTA row inside card */
@@ -452,6 +456,80 @@ img { max-width: 100%; height: auto; display: block; }
   letter-spacing: var(--ls-hero);
   text-transform: uppercase;
   color: var(--color-text);
+}
+
+/* Archive header — sticky, title left, year switcher right */
+.archive-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  position: sticky;
+  top: 52px;
+  z-index: 10;
+  background: var(--color-bg);
+  padding-top: var(--space-4);
+  padding-bottom: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+/* Year switcher: ‹  2025  › */
+.year-switcher {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+.year-arrow {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-en);
+  font-size: var(--fs-h3);
+  color: var(--color-text-light);
+  line-height: 1;
+  padding: 0 var(--space-1);
+  transition: color 0.2s var(--ease);
+  user-select: none;
+}
+.year-arrow:hover { color: var(--color-text); }
+.year-arrow:disabled { opacity: 0.2; cursor: default; }
+
+.year-current {
+  font-family: var(--font-en);
+  font-size: var(--fs-eyebrow);
+  font-weight: 700;
+  letter-spacing: var(--ls-hero);
+  text-transform: uppercase;
+  color: var(--color-text);
+  min-width: 3em;
+  text-align: center;
+}
+
+/* Year stage — content area that switches */
+.year-stage {
+  position: relative;
+}
+.year-section {
+  display: none;
+}
+.year-section.is-active {
+  display: block;
+  animation: yearFadeIn 0.35s var(--ease) both;
+}
+.year-section.is-leaving {
+  display: block;
+  animation: yearFadeOut 0.2s var(--ease) both;
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+}
+@keyframes yearFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes yearFadeOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
 }
 
 /* Year filter bar */
