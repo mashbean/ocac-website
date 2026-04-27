@@ -360,12 +360,27 @@ img { max-width: 100%; height: auto; display: block; }
 /* Small: horizontal — image:text = 0.7:1.3 (35%:65%), square image */
 .item-card.card-sm > a {
   flex-direction: row;
-  align-items: stretch;
+  align-items: flex-start;
 }
 .item-card.card-sm .item-thumb {
   flex: 0 0 35%;
-  aspect-ratio: 1;
-  align-self: flex-start;
+  position: relative;
+}
+.item-card.card-sm .item-thumb::before {
+  content: '';
+  display: block;
+  padding-top: 100%;
+}
+.item-card.card-sm .item-thumb img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 .item-card.card-sm .item-info {
   flex: 1;
