@@ -372,10 +372,11 @@ img { max-width: 100%; height: auto; display: block; }
   padding: var(--space-3) var(--space-4);
 }
 .item-card.card-sm .item-title {
-  font-size: var(--fs-base);
+  font-size: var(--fs-lead);
   font-weight: 600;
 }
 .item-card.card-sm .item-excerpt {
+  font-size: var(--fs-base);
   -webkit-line-clamp: 2;
 }
 
