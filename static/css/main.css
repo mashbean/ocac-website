@@ -152,7 +152,7 @@ img { max-width: 100%; height: auto; display: block; }
   left: 0;
   width: 100%;
   background: var(--color-bg);
-  border-bottom: 1px solid var(--color-border);
+  padding: 6px var(--space-6);
   z-index: 100;
 }
 
@@ -163,6 +163,8 @@ img { max-width: 100%; height: auto; display: block; }
   height: 52px;
   padding: 0 var(--space-6);
   gap: var(--space-4);
+  background: var(--color-surface);
+  border-radius: var(--card-radius);
 }
 
 /* Logo */
@@ -254,11 +256,12 @@ img { max-width: 100%; height: auto; display: block; }
 
 .home-section .section-header {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   margin-bottom: var(--space-5);
-  padding-bottom: var(--space-3);
-  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-3) var(--space-5);
+  background: var(--color-surface);
+  border-radius: var(--card-radius);
 }
 
 .section-title {
@@ -469,7 +472,7 @@ img { max-width: 100%; height: auto; display: block; }
   justify-content: space-between;
   gap: var(--space-6);
   position: sticky;
-  top: 52px;
+  top: 64px;
   z-index: 10;
   background: var(--color-bg);
   padding-top: var(--space-4);
