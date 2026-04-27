@@ -369,7 +369,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .item-card.card-sm .item-info {
   flex: 1;
-  padding: var(--space-3) var(--space-4);
+  padding: var(--space-5);
 }
 .item-card.card-sm .item-title {
   font-size: 20px;
@@ -382,7 +382,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* ---------- Card text ---------- */
 .item-info {
-  padding: var(--space-8);
+  padding: var(--space-5);
   flex: 1;
   display: flex;
   flex-direction: column;
