@@ -33,12 +33,22 @@
   <script>
   (function () {
     var palette = ['#e87dc1', '#1313f0', '#4df04d', '#d44020', '#7b1ef0'];
+
+    /* ── 1. random text colour ── */
     var c = palette[Math.floor(Math.random() * palette.length)];
     var r = document.documentElement;
     r.style.setProperty('--color-text',       c);
     r.style.setProperty('--color-text-2',     c);
     r.style.setProperty('--color-text-muted', c);
     r.style.setProperty('--color-black',      c);
+
+    /* ── 2. colour-block thumbs: cycle through palette on each load ── */
+    document.addEventListener('DOMContentLoaded', function () {
+      var thumbs = document.querySelectorAll('.item-thumb--color');
+      thumbs.forEach(function (thumb, idx) {
+        thumb.style.backgroundColor = palette[idx % palette.length];
+      });
+    });
   })();
   </script>
 </head>
