@@ -8,7 +8,7 @@
     <div class="archive-sticky">
       <div class="archive-backdrop"></div>
       <div class="section-header">
-        <h2 class="section-title">{{ with index (where .Site.Sections "Section" "archive") 0 }}{{ .Title }}{{ else }}Archive{{ end }}</h2>
+        <h2 class="section-title">{{ if eq .Lang "en" }}Recent{{ else }}Recent / 最近更新{{ end }}</h2>
         <a href="{{ if eq .Lang "en" }}/en{{ end }}/archive/" class="section-more">View All →</a>
       </div>
     </div>
