@@ -200,20 +200,27 @@ img { max-width: 100%; height: auto; display: block; }
 
 .nav-item a {
   display: block;
-  padding: 5px 10px;
+  padding: 4px 16px;
   font-family: var(--font-en);
   font-size: var(--fs-label);
   font-weight: 700;
   letter-spacing: var(--ls-label);
   text-transform: uppercase;
   color: var(--color-text-muted);
-  border-radius: 20px;
-  transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
+  border-radius: 100px;
+  border: 1.5px solid transparent;
+  transition: border-color var(--dur) var(--ease), color var(--dur) var(--ease);
 }
-.nav-item a:hover { opacity: 1; color: var(--color-text); background: rgba(0,0,0,0.06); }
+.nav-item a:hover {
+  opacity: 1;
+  color: var(--color-text);
+  border-color: var(--color-text);
+  background: transparent;
+}
 .nav-item.is-active a {
-  background: var(--color-text);
-  color: var(--color-white);
+  border-color: var(--color-text);
+  color: var(--color-text);
+  background: transparent;
   opacity: 1;
 }
 
