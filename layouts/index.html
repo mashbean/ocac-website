@@ -66,14 +66,18 @@
         <a href="{{ if eq .Lang "en" }}/en{{ end }}/artists/" class="section-more">View All →</a>
       </div>
     </div>
+    {{ $ai := 0 }}
     <div class="items-grid" id="artists-grid">
       {{ range (where .Site.RegularPages "Section" "artists") }}
+      {{ $color := index $colors (mod $ai (len $colors)) }}
       <article class="item-card card-md">
         <a href="{{ .RelPermalink }}">
-          {{ with .Params.image }}
+          {{ if .Params.image }}
           <div class="item-thumb">
-            <img src="{{ . }}" alt="{{ $.Title }}" loading="lazy">
+            <img src="{{ .Params.image }}" alt="{{ .Title }}" loading="lazy">
           </div>
+          {{ else }}
+          <div class="item-thumb item-thumb--color" style="background-color:{{ $color }};"></div>
           {{ end }}
           <div class="item-info">
             <h3 class="item-title">{{ .Title }}</h3>
@@ -83,27 +87,11 @@
           </div>
         </a>
       </article>
+      {{ $ai = add $ai 1 }}
       {{ end }}
     </div>
   </div>
 </section>
-<script>
-(function () {
-  var grid = document.getElementById('artists-grid');
-  if (!grid) return;
-  var cards = Array.from(grid.children);
-  // Fisher-Yates shuffle
-  for (var i = cards.length - 1; i > 0; i--) {
-    var j = Math.floor(Math.random() * (i + 1));
-    var tmp = cards[i]; cards[i] = cards[j]; cards[j] = tmp;
-  }
-  // Re-insert in shuffled order; hide cards beyond the first 8
-  cards.forEach(function (card, idx) {
-    grid.appendChild(card);
-    if (idx >= 8) card.style.display = 'none';
-  });
-})();
-</script>
 
 {{/* Art Spaces */}}
 <section class="home-section">
@@ -115,23 +103,48 @@
         <a href="{{ if eq .Lang "en" }}/en{{ end }}/artspaces/" class="section-more">View All →</a>
       </div>
     </div>
-    <div class="items-grid">
-      {{ range first 4 (where .Site.RegularPages "Section" "artspaces") }}
+    {{ $si := 0 }}
+    <div class="items-grid" id="artspaces-grid">
+      {{ range (where .Site.RegularPages "Section" "artspaces") }}
+      {{ $color := index $colors (mod $si (len $colors)) }}
       <article class="item-card card-md">
         <a href="{{ .RelPermalink }}">
-          {{ with .Params.image }}
+          {{ if .Params.image }}
           <div class="item-thumb">
-            <img src="{{ . }}" alt="{{ $.Title }}" loading="lazy">
+            <img src="{{ .Params.image }}" alt="{{ .Title }}" loading="lazy">
           </div>
+          {{ else }}
+          <div class="item-thumb item-thumb--color" style="background-color:{{ $color }};"></div>
           {{ end }}
           <div class="item-info">
             <h3 class="item-title">{{ .Title }}</h3>
           </div>
         </a>
       </article>
+      {{ $si = add $si 1 }}
       {{ end }}
     </div>
   </div>
 </section>
+
+<script>
+(function () {
+  function shuffleGrid(id, show) {
+    var grid = document.getElementById(id);
+    if (!grid) return;
+    var cards = Array.from(grid.children);
+    for (var i = cards.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = cards[i]; cards[i] = cards[j]; cards[j] = tmp;
+    }
+    cards.forEach(function (card, idx) {
+      grid.appendChild(card);
+      card.style.display = idx < show ? '' : 'none';
+    });
+  }
+  shuffleGrid('artists-grid',   3);
+  shuffleGrid('artspaces-grid', 3);
+})();
+</script>
 
 {{ end }}
