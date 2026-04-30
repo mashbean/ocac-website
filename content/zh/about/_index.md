@@ -1,7 +1,7 @@
 ---
 title: "About"
 description: "關於打開—當代藝術工作站"
-layout: "single"
+layout: "infopage"
 ---
 
 

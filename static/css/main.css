@@ -121,7 +121,7 @@ body {
   color: var(--color-text);
   background: var(--color-bg);
   line-height: var(--lh-body);
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body.drawer-open { overflow: hidden; }
@@ -152,7 +152,7 @@ img { max-width: 100%; height: auto; display: block; }
   left: 0;
   width: 100%;
   background: var(--color-bg);
-  padding: 6px var(--space-6);
+  padding: 6px var(--space-6) 0;
   z-index: 100;
 }
 
@@ -173,10 +173,13 @@ img { max-width: 100%; height: auto; display: block; }
   align-items: center;
   flex-shrink: 0;
 }
-.site-logo img { display: block; }
-.site-logo .logo-mark   { height: 32px; width: auto; }
-.site-logo .logo-desktop{ display: none; }
-.site-logo .logo-mobile { display: none; }
+.logo-dot {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-text);
+}
 
 /* Nav — horizontal */
 .site-nav {
@@ -240,7 +243,7 @@ img { max-width: 100%; height: auto; display: block; }
    ========================================================================== */
 #content {
   min-height: 100vh;
-  padding: var(--space-6) var(--space-6) var(--space-16);
+  padding: 0 var(--space-6) var(--space-16);
 }
 
 .site-footer {
@@ -366,12 +369,12 @@ img { max-width: 100%; height: auto; display: block; }
   align-items: stretch;
 }
 .item-card.card-sm .item-thumb {
-  flex: 0 0 35%;
-  position: relative;
-  min-height: 120px;
+  flex: 0.9;
+  aspect-ratio: 3 / 4;
+  align-self: flex-start;
 }
 .item-card.card-sm .item-info {
-  flex: 1;
+  flex: 1.1;
   padding: var(--space-5);
 }
 .item-card.card-sm .item-title {
@@ -379,8 +382,7 @@ img { max-width: 100%; height: auto; display: block; }
   font-weight: 600;
 }
 .item-card.card-sm .item-excerpt {
-  font-size: 14px;
-  -webkit-line-clamp: 2;
+  display: none;
 }
 
 /* ---------- Card text ---------- */
@@ -451,8 +453,11 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .page-header {
-  padding: var(--space-6) 0 var(--space-4);
-  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  padding: var(--space-3) var(--space-5);
+  background: var(--color-surface);
+  border-radius: var(--card-radius);
   margin-bottom: var(--space-5);
 }
 
@@ -465,20 +470,38 @@ img { max-width: 100%; height: auto; display: block; }
   color: var(--color-text);
 }
 
-/* Archive header — sticky, title left, year switcher right */
-.archive-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-6);
+/* Archive header — sticky wrapper holds the stacking context */
+.archive-sticky {
   position: sticky;
-  top: 64px;
+  top: 58px;
   z-index: 10;
-  background: var(--color-bg);
-  padding-top: var(--space-4);
-  padding-bottom: var(--space-4);
   margin-bottom: var(--space-5);
 }
+/* Backdrop sibling: covers top-corner gaps without touching bottom corners */
+.archive-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: var(--card-radius);
+  background: var(--color-bg);
+  z-index: 0;
+}
+/* Any page-header inside archive-sticky gets the same stacking treatment */
+.archive-sticky .page-header {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 0;
+}
+/* Archive header sits above backdrop inside the same stacking context */
+.archive-header {
+  justify-content: space-between;
+  gap: var(--space-6);
+  position: relative;
+  z-index: 1;
+  margin-bottom: 0;
+}
+
 
 /* Year switcher: ‹  2025  › */
 .year-switcher {
@@ -574,9 +597,10 @@ img { max-width: 100%; height: auto; display: block; }
 .article-page { max-width: 960px; }
 
 .article-header {
-  padding: var(--space-6) 0 var(--space-5);
-  border-bottom: 1px solid var(--color-border);
-  margin-bottom: var(--space-8);
+  background: var(--color-surface);
+  border-radius: var(--card-radius);
+  padding: var(--space-5);
+  margin-bottom: var(--space-6);
 }
 
 .article-title {
@@ -742,13 +766,6 @@ img { max-width: 100%; height: auto; display: block; }
   max-width: var(--container);
   padding: 0 0 var(--space-20);
 }
-.about-page .page-header,
-.visit-page .page-header,
-.contact-page .page-header {
-  padding: var(--space-6) 0 var(--space-4);
-  border-bottom: 1px solid var(--color-border);
-  margin-bottom: var(--space-8);
-}
 .about-content, .visit-content {
   max-width: 680px;
   background: var(--color-surface);
@@ -904,6 +921,7 @@ img { max-width: 100%; height: auto; display: block; }
    ========================================================================== */
 @media (min-width: 641px) and (max-width: 1100px) {
   .items-grid { columns: 2; }
+  .item-card.card-md--landscape { column-span: all; margin-top: var(--grid-gap); }
   .article-layout { grid-template-columns: 1fr 200px; gap: var(--space-8); }
 }
 
@@ -914,6 +932,7 @@ img { max-width: 100%; height: auto; display: block; }
   :root { --grid-gap: 12px; }
 
   .header-inner { padding: 0 16px; }
+  .site-header { padding-left: 16px; padding-right: 16px; }
   .site-logo .logo-mark { height: 28px; }
 
   /* Nav collapses to right-side drawer on mobile */
@@ -972,13 +991,15 @@ img { max-width: 100%; height: auto; display: block; }
   .nav-overlay { display: block; position: fixed; inset: 0; background: var(--overlay-drawer); opacity: 0; z-index: 99; visibility: hidden; transition: opacity var(--dur) var(--ease); }
   .nav-overlay.is-active { opacity: 1; visibility: visible; }
 
-  #content { padding: var(--space-5) 16px var(--space-12); }
+  #content { padding: 0 16px var(--space-12); }
   .site-footer { padding: var(--space-6) 16px; }
 
   .items-grid { columns: 2; }
+  .item-card.card-md--landscape { column-span: all; margin-top: var(--grid-gap); }
   .item-card.card-sm > a { flex-direction: column; }
   .item-card.card-sm .item-thumb { flex: none; width: 100%; aspect-ratio: 4 / 3; align-self: auto; }
   .item-card.card-sm .item-info { flex: none; }
+  .item-card.card-sm .item-excerpt { display: -webkit-box; }
   .article-layout { grid-template-columns: 1fr; gap: 0; }
   .article-sidebar { border-top: 1px solid var(--color-border); padding-top: var(--space-6); margin-top: var(--space-6); }
   .article-title { font-size: 22px; }
@@ -989,3 +1010,4 @@ img { max-width: 100%; height: auto; display: block; }
   .footer-links { margin-left: 0; }
   .back-to-top { width: 40px; height: 40px; bottom: 16px; right: 16px; }
 }
+

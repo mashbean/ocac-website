@@ -1,7 +1,7 @@
 ---
 title: "About"
 description: "About Open Contemporary Art Center"
-layout: "single"
+layout: "infopage"
 ---
 
 

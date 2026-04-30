@@ -116,6 +116,7 @@
       incoming.classList.add('is-active');
       swIdx = idx;
       swCurrent.textContent = swYears[idx];
+      fitCardSmTitles();
       swPrev.disabled = (idx === 0);
       swNext.disabled = (idx === swYears.length - 1);
 
@@ -215,6 +216,32 @@
     img.addEventListener('click', function() {
       lightbox.open(this.src);
     });
+  });
+
+  // ---------- card-sm: shrink title until info height fits 3:4 image ratio ----------
+  function fitCardSmTitles() {
+    document.querySelectorAll('.item-card.card-sm').forEach(function(card) {
+      var thumb = card.querySelector('.item-thumb');
+      var info  = card.querySelector('.item-info');
+      var title = card.querySelector('.item-title');
+      if (!thumb || !info || !title) return;
+      title.style.fontSize = '';
+      if (window.matchMedia('(max-width: 640px)').matches) return;
+      var maxH  = thumb.offsetWidth * 4 / 3;
+      var fs    = parseFloat(getComputedStyle(title).fontSize);
+      var minFs = 13;
+      while (info.offsetHeight > maxH && fs > minFs) {
+        fs -= 1;
+        title.style.fontSize = fs + 'px';
+      }
+    });
+  }
+
+  window.addEventListener('load', fitCardSmTitles);
+  var fitTimer;
+  window.addEventListener('resize', function() {
+    clearTimeout(fitTimer);
+    fitTimer = setTimeout(fitCardSmTitles, 150);
   });
 
 })();

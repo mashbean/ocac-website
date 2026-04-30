@@ -1,7 +1,7 @@
 ---
 title: "Visit"
 description: "Visiting information"
-layout: "single"
+layout: "infopage"
 ---
 
 

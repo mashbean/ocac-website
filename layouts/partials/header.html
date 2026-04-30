@@ -1,9 +1,7 @@
 <header class="site-header" id="site-header">
   <div class="header-inner">
-    <a href="{{ .Site.Home.RelPermalink }}" class="site-logo">
-      <img src="{{ .Site.Params.logo_primary }}" alt="{{ .Site.Title }}" class="logo-mark">
-      <img src="{{ .Site.Params.logo_wordmark }}" alt="{{ .Site.Title }}" class="logo-desktop">
-      <img src="{{ .Site.Params.logo_stack }}" alt="{{ .Site.Title }}" class="logo-mobile">
+    <a href="{{ .Site.Home.RelPermalink }}" class="site-logo" aria-label="{{ .Site.Title }}">
+      <span class="logo-dot"></span>
     </a>
 
     <button class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">

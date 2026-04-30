@@ -6,7 +6,7 @@
 <section class="home-section">
   <div class="container">
     <div class="section-header">
-      <h2 class="section-title">Archive</h2>
+      <h2 class="section-title">{{ with index (where .Site.Sections "Section" "archive") 0 }}{{ .Title }}{{ else }}Archive{{ end }}</h2>
       <a href="{{ if eq .Lang "en" }}/en{{ end }}/archive/" class="section-more">View All →</a>
     </div>
     {{ $archivePages := first 8 (where .Site.RegularPages "Section" "archive") }}
@@ -57,7 +57,7 @@
 <section class="home-section">
   <div class="container">
     <div class="section-header">
-      <h2 class="section-title">Artists</h2>
+      <h2 class="section-title">{{ with index (where .Site.Sections "Section" "artists") 0 }}{{ .Title }}{{ else }}Artists{{ end }}</h2>
       <a href="{{ if eq .Lang "en" }}/en{{ end }}/artists/" class="section-more">View All →</a>
     </div>
     <div class="items-grid">
@@ -86,7 +86,7 @@
 <section class="home-section">
   <div class="container">
     <div class="section-header">
-      <h2 class="section-title">Art Spaces</h2>
+      <h2 class="section-title">{{ with index (where .Site.Sections "Section" "artspaces") 0 }}{{ .Title }}{{ else }}Art Spaces{{ end }}</h2>
       <a href="{{ if eq .Lang "en" }}/en{{ end }}/artspaces/" class="section-more">View All →</a>
     </div>
     <div class="items-grid">

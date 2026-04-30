@@ -31,7 +31,7 @@
   <link rel="stylesheet" href="/css/main.css?v={{ now.UnixNano }}">
   {{ hugo.Generator }}
 </head>
-<body>
+<body{{ if .IsHome }} class="is-home"{{ end }}>
   {{ partial "header.html" . }}
   <main id="content">
     {{ block "main" . }}{{ end }}

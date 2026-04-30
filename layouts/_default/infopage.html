@@ -1,0 +1,25 @@
+{{ define "main" }}
+<div class="section-page">
+  <div class="archive-sticky">
+    <div class="archive-backdrop"></div>
+    <div class="page-header">
+      <h1 class="page-title">{{ .Title }}</h1>
+    </div>
+  </div>
+  <div class="article-layout">
+    <div class="article-body">
+      {{ .Content }}
+    </div>
+    <aside class="article-sidebar">
+      {{ with .Params.related_links }}
+      <div class="sidebar-section">
+        <h3 class="sidebar-title">Related</h3>
+        {{ range . }}
+        <p><a href="{{ .url }}" target="_blank" rel="noopener">{{ .title }}</a></p>
+        {{ end }}
+      </div>
+      {{ end }}
+    </aside>
+  </div>
+</div>
+{{ end }}

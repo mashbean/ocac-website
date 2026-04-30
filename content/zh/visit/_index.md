@@ -1,7 +1,7 @@
 ---
 title: "Visit"
 description: "參觀資訊"
-layout: "single"
+layout: "infopage"
 ---
 
 

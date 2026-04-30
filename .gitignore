@@ -15,3 +15,7 @@ Thumbs.db
 
 # Hugo lock file
 .hugo_build.lock
+
+# Google Drive API 憑證（絕對不能上傳）
+scripts/gdrive_credentials.json
+scripts/gdrive_token.json
