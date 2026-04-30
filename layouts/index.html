@@ -66,8 +66,8 @@
         <a href="{{ if eq .Lang "en" }}/en{{ end }}/artists/" class="section-more">View All →</a>
       </div>
     </div>
-    <div class="items-grid">
-      {{ range first 8 (where .Site.RegularPages "Section" "artists") }}
+    <div class="items-grid" id="artists-grid">
+      {{ range (where .Site.RegularPages "Section" "artists") }}
       <article class="item-card card-md">
         <a href="{{ .RelPermalink }}">
           {{ with .Params.image }}
@@ -87,6 +87,23 @@
     </div>
   </div>
 </section>
+<script>
+(function () {
+  var grid = document.getElementById('artists-grid');
+  if (!grid) return;
+  var cards = Array.from(grid.children);
+  // Fisher-Yates shuffle
+  for (var i = cards.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var tmp = cards[i]; cards[i] = cards[j]; cards[j] = tmp;
+  }
+  // Re-insert in shuffled order; hide cards beyond the first 8
+  cards.forEach(function (card, idx) {
+    grid.appendChild(card);
+    if (idx >= 8) card.style.display = 'none';
+  });
+})();
+</script>
 
 {{/* Art Spaces */}}
 <section class="home-section">
