@@ -129,22 +129,6 @@ body {
   overflow-x: clip;
 }
 
-/* === Gradient blob background ===
-   Three radial soft-light blobs placed at different viewport corners.
-   Colours are set per-load via JS (--blob-1/2/3) using the same palette
-   as the random text colour. */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse 70% 55% at  8% 18%, var(--blob-1) 0%, transparent 65%),
-    radial-gradient(ellipse 55% 65% at 90%  8%, var(--blob-2) 0%, transparent 65%),
-    radial-gradient(ellipse 65% 55% at 58% 92%, var(--blob-3) 0%, transparent 65%),
-    radial-gradient(ellipse 45% 42% at 76% 50%, var(--blob-1) 0%, transparent 52%);
-}
 
 body.drawer-open { overflow: hidden; }
 
@@ -173,9 +157,7 @@ img { max-width: 100%; height: auto; display: block; }
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(236, 237, 239, 0.80);
-  backdrop-filter: blur(16px) saturate(1.4);
-  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  background: var(--color-bg);
   padding: 6px var(--space-6) 0;
   z-index: 100;
 }
@@ -520,9 +502,7 @@ img { max-width: 100%; height: auto; display: block; }
   left: 0;
   right: 0;
   bottom: var(--card-radius);
-  background: rgba(236, 237, 239, 0.80);
-  backdrop-filter: blur(16px) saturate(1.4);
-  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  background: var(--color-bg);
   z-index: 0;
 }
 /* Any page-header or section-header inside archive-sticky gets the same stacking treatment */
