@@ -487,8 +487,9 @@ img { max-width: 100%; height: auto; display: block; }
   background: var(--color-bg);
   z-index: 0;
 }
-/* Any page-header inside archive-sticky gets the same stacking treatment */
-.archive-sticky .page-header {
+/* Any page-header or section-header inside archive-sticky gets the same stacking treatment */
+.archive-sticky .page-header,
+.archive-sticky .section-header {
   position: relative;
   z-index: 1;
   margin-bottom: 0;
