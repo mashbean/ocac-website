@@ -331,6 +331,7 @@ img { max-width: 100%; height: auto; display: block; }
   overflow: hidden;
   background: var(--color-bg);
   flex-shrink: 0;
+  border-radius: 0 0 var(--card-radius) var(--card-radius); /* round bottom corners where image meets text */
 }
 .item-thumb img {
   position: absolute;
@@ -372,6 +373,7 @@ img { max-width: 100%; height: auto; display: block; }
   flex: 0.9;
   aspect-ratio: 3 / 4;
   align-self: flex-start;
+  border-radius: 0 var(--card-radius) var(--card-radius) 0; /* image on left → round right side */
 }
 .item-card.card-sm .item-info {
   flex: 1.1;
@@ -1011,7 +1013,7 @@ img { max-width: 100%; height: auto; display: block; }
   .item-card.card-md--landscape,
   .item-card.card-sm { grid-column: 1 / -1; margin-top: 0; }
   .item-card.card-sm > a { flex-direction: column; }
-  .item-card.card-sm .item-thumb { flex: none; width: 100%; aspect-ratio: 4 / 3; align-self: auto; }
+  .item-card.card-sm .item-thumb { flex: none; width: 100%; aspect-ratio: 4 / 3; align-self: auto; border-radius: 0 0 var(--card-radius) var(--card-radius); }
   .item-card.card-sm .item-info { flex: none; }
   .item-card.card-sm .item-excerpt { display: -webkit-box; }
   .article-layout { grid-template-columns: 1fr; gap: 0; }
