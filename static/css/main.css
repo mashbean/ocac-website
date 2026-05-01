@@ -367,16 +367,12 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* ---------- Card sizes ---------- */
 
-/* Medium base — uniform grids (artists / artspaces) */
-.item-card.card-md .item-thumb {
-  aspect-ratio: 4 / 3;
-}
-/* Medium landscape modifier: 1 column, 16:9 thumb */
+/* Medium landscape: 16:9 thumb */
 .item-card.card-md--landscape .item-thumb {
   aspect-ratio: 16 / 9;
 }
 
-/* Medium portrait modifier: 1 column, 3:4 thumb */
+/* Medium portrait: 3:4 thumb */
 .item-card.card-md--portrait .item-thumb {
   aspect-ratio: 3 / 4;
 }
