@@ -1110,7 +1110,7 @@ img { max-width: 100%; height: auto; display: block; }
   .items-grid .item-card { margin-bottom: 0; }
   .item-card.card-md--landscape,
   .item-card.card-sm { grid-column: 1 / -1; margin-top: 0; }
-  .item-card.card-sm .item-excerpt { display: -webkit-box; }
+  .item-card.card-sm .item-excerpt { display: none; }
   .article-layout { grid-template-columns: 1fr; row-gap: 0; }
   .article-featured-figure {
     grid-column: 1; grid-row: 1;
