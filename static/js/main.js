@@ -148,6 +148,39 @@
     });
 
     swShow(0);
+
+    // ---------- Drag-to-scroll on year track ----------
+    var dragState = { active: false, startX: 0, scrollLeft: 0, moved: false };
+
+    swTrack.addEventListener('mousedown', function(e) {
+      dragState.active = true;
+      dragState.moved = false;
+      dragState.startX = e.pageX - swTrack.getBoundingClientRect().left;
+      dragState.scrollLeft = swTrack.scrollLeft;
+      swTrack.classList.add('is-dragging');
+    });
+
+    document.addEventListener('mousemove', function(e) {
+      if (!dragState.active) return;
+      var x = e.pageX - swTrack.getBoundingClientRect().left;
+      var walk = x - dragState.startX;
+      if (Math.abs(walk) > 3) dragState.moved = true;
+      swTrack.scrollLeft = dragState.scrollLeft - walk;
+    });
+
+    document.addEventListener('mouseup', function() {
+      if (!dragState.active) return;
+      dragState.active = false;
+      swTrack.classList.remove('is-dragging');
+    });
+
+    // Suppress dot click if the mouse actually dragged
+    swTrack.addEventListener('click', function(e) {
+      if (dragState.moved) {
+        e.stopPropagation();
+        dragState.moved = false;
+      }
+    }, true);
   }
 
   // ---------- Image Lightbox ----------
