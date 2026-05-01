@@ -606,8 +606,9 @@ img { max-width: 100%; height: auto; display: block; }
 .article-page { padding-top: var(--space-5); }
 
 .article-header {
-  padding: 0 0 var(--space-6);
-  margin-bottom: 0;
+  background: var(--color-surface);
+  border-radius: var(--card-radius);
+  padding: var(--space-5);
 }
 
 .article-title {
