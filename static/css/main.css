@@ -1009,10 +1009,10 @@ img { max-width: 100%; height: auto; display: block; }
     align-items: start;
   }
   .items-grid .item-card { margin-bottom: 0; }
-  .item-card.card-md--landscape,
-  .item-card.card-sm { grid-column: 1 / -1; margin-top: 0; }
+  .item-card.card-md--landscape { grid-column: 1 / -1; margin-top: 0; }
 
-  /* card-sm: switch to vertical at tablet */
+  /* card-sm: single column, vertical at tablet */
+  .item-card.card-sm            { grid-column: auto; margin-top: 0; }
   .item-card.card-sm > a        { flex-direction: column; }
   .item-card.card-sm .item-thumb {
     width: 100%;
