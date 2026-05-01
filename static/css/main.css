@@ -1111,6 +1111,12 @@ img { max-width: 100%; height: auto; display: block; }
   .item-card.card-md--landscape,
   .item-card.card-sm { grid-column: 1 / -1; margin-top: 0; }
   .item-card.card-sm .item-excerpt { display: none; }
+  .item-card.card-md--portrait .item-title,
+  .item-card.card-md--landscape .item-title { font-size: 17px; }
+  .item-card.card-md--portrait .item-excerpt,
+  .item-card.card-md--landscape .item-excerpt,
+  .item-card.card-md--portrait .item-intro,
+  .item-card.card-md--landscape .item-intro  { font-size: 13px; }
   .article-layout { grid-template-columns: 1fr; row-gap: 0; }
   .article-featured-figure {
     grid-column: 1; grid-row: 1;
