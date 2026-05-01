@@ -101,25 +101,7 @@
     var swIdx   = 0;
     var swDots  = [];
 
-    // Build dot buttons
-    swYears.forEach(function(year, i) {
-      var btn = document.createElement('button');
-      btn.className = 'year-dot';
-      btn.textContent = year;
-      btn.setAttribute('aria-label', year);
-      btn.addEventListener('click', function() { swShow(i); });
-      swTrack.appendChild(btn);
-      swDots.push(btn);
-    });
-
-    // Keyboard: left/right arrow keys
-    document.addEventListener('keydown', function(e) {
-      if (!document.getElementById('year-switcher')) return;
-      if (e.key === 'ArrowLeft' && swIdx > 0) swShow(swIdx - 1);
-      if (e.key === 'ArrowRight' && swIdx < swYears.length - 1) swShow(swIdx + 1);
-    });
-
-    var swShow = function(idx) {
+    function swShow(idx) {
       var outgoing = swStage.querySelector('.year-section.is-active');
       var incoming = document.getElementById('year-' + swYears[idx]);
       if (!incoming) return;
@@ -133,21 +115,37 @@
       incoming.classList.add('is-active');
       swIdx = idx;
 
-      // Update dots
       swDots.forEach(function(d, i) {
         d.classList.toggle('is-active', i === idx);
       });
 
       fitCardSmTitles();
 
-      // Scroll to top of content area
       var siteH    = (document.getElementById('site-header') || {}).offsetHeight || 52;
       var archiveH = (document.getElementById('archive-header') || {}).offsetHeight || 40;
       var stageTop = swStage.getBoundingClientRect().top + window.scrollY;
       if (outgoing) {
         window.scrollTo({ top: stageTop - siteH - archiveH - 8, behavior: 'smooth' });
       }
-    };
+    }
+
+    // Build dot buttons
+    swYears.forEach(function(year, i) {
+      var dot = document.createElement('button');
+      dot.className = 'year-dot';
+      dot.textContent = year;
+      dot.setAttribute('aria-label', year);
+      dot.addEventListener('click', function() { swShow(i); });
+      swTrack.appendChild(dot);
+      swDots.push(dot);
+    });
+
+    // Keyboard left/right navigation
+    document.addEventListener('keydown', function(e) {
+      if (!document.getElementById('year-switcher')) return;
+      if (e.key === 'ArrowLeft' && swIdx > 0) swShow(swIdx - 1);
+      if (e.key === 'ArrowRight' && swIdx < swYears.length - 1) swShow(swIdx + 1);
+    });
 
     swShow(0);
   }
