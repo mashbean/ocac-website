@@ -609,6 +609,7 @@ img { max-width: 100%; height: auto; display: block; }
   background: var(--color-surface);
   border-radius: var(--card-radius);
   padding: var(--space-5);
+  align-self: stretch;
 }
 
 .article-title {
