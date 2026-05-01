@@ -100,24 +100,57 @@
     var swStage = document.getElementById('year-stage');
     var swIdx   = 0;
 
-    // Render at most 3 pills: [prev] [active] [next]
+    function makePill(i, isActive) {
+      var pill = document.createElement('button');
+      pill.className = 'year-dot' + (isActive ? ' is-active' : '');
+      pill.textContent = swYears[i];
+      pill.setAttribute('aria-label', swYears[i]);
+      (function(captured) {
+        pill.addEventListener('click', function() { swShow(captured); });
+      }(i));
+      return pill;
+    }
+
+    function makeDot(opacity) {
+      var span = document.createElement('span');
+      span.className = 'year-sep-dot';
+      span.style.opacity = opacity;
+      return span;
+    }
+
+    function appendDots(opacities) {
+      opacities.forEach(function(op) { swTrack.appendChild(makeDot(op)); });
+    }
+
+    // Render: [hint···] [prev] [···→active] [active] [active→···] [next] [···hint]
+    // Dots fade outward from the active pill; outermost hint if more years exist
     function buildTrack(idx) {
       swTrack.innerHTML = '';
-      var visible = [];
-      if (idx > 0)                    visible.push(idx - 1);
-      visible.push(idx);
-      if (idx < swYears.length - 1)  visible.push(idx + 1);
+      var hasPrev     = idx > 0;
+      var hasNext     = idx < swYears.length - 1;
+      var hasMorePrev = idx > 1;
+      var hasMoreNext = idx < swYears.length - 2;
 
-      visible.forEach(function(i) {
-        var pill = document.createElement('button');
-        pill.className = 'year-dot' + (i === idx ? ' is-active' : '');
-        pill.textContent = swYears[i];
-        pill.setAttribute('aria-label', swYears[i]);
-        (function(captured) {
-          pill.addEventListener('click', function() { swShow(captured); });
-        }(i));
-        swTrack.appendChild(pill);
-      });
+      // Hint dots: further year beyond prev
+      if (hasPrev && hasMorePrev) appendDots([0.08, 0.13, 0.2]);
+
+      // Prev pill
+      if (hasPrev) swTrack.appendChild(makePill(idx - 1, false));
+
+      // Connecting dots: fade in toward active
+      if (hasPrev) appendDots([0.22, 0.38, 0.55]);
+
+      // Active pill
+      swTrack.appendChild(makePill(idx, true));
+
+      // Connecting dots: fade out away from active
+      if (hasNext) appendDots([0.55, 0.38, 0.22]);
+
+      // Next pill
+      if (hasNext) swTrack.appendChild(makePill(idx + 1, false));
+
+      // Hint dots: further year beyond next
+      if (hasNext && hasMoreNext) appendDots([0.2, 0.13, 0.08]);
     }
 
     function swShow(idx) {
