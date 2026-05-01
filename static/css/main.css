@@ -648,8 +648,10 @@ img { max-width: 100%; height: auto; display: block; }
 
 .article-featured-img {
   width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
   border-radius: var(--card-radius);
-  overflow: hidden;
+  display: block;
 }
 
 .article-body p {
