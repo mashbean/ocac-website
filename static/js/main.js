@@ -279,12 +279,14 @@
       var title = card.querySelector('.item-title');
       if (!thumb || !info || !title) return;
       title.style.fontSize = '';
-      if (window.matchMedia('(max-width: 640px)').matches) return;
-      var maxH  = thumb.offsetWidth * 4 / 3;
+      // Tablet (641–1100px): vertical layout, no height constraint needed
+      if (window.matchMedia('(max-width: 1100px)').matches) return;
+      // Desktop: horizontal 1:1 layout — info height must not exceed thumb height
+      var maxH  = thumb.offsetWidth; // 1:1 ratio
       var fs    = parseFloat(getComputedStyle(title).fontSize);
-      var minFs = 13;
+      var minFs = 12;
       while (info.offsetHeight > maxH && fs > minFs) {
-        fs -= 1;
+        fs -= 0.5;
         title.style.fontSize = fs + 'px';
       }
     });
