@@ -977,9 +977,9 @@ img { max-width: 100%; height: auto; display: block; }
   .site-logo .logo-mark { height: 28px; }
 
   /* Year switcher — compact on mobile */
-  .year-track  { gap: 2px; padding: 0 1px; }
+  .year-track  { gap: 1px; padding: 0 1px; }
   .year-sep-dot { width: 2px; height: 2px; }
-  .year-dot    { font-size: 9px; padding: 2px 7px; margin: 0 1px; }
+  .year-dot    { font-size: 8px; padding: 2px 5px; margin: 0; }
 
   /* Nav collapses to right-side drawer on mobile */
   .site-nav {
