@@ -149,38 +149,57 @@
 
     swShow(0);
 
-    // ---------- Drag-to-scroll on year track ----------
-    var dragState = { active: false, startX: 0, scrollLeft: 0, moved: false };
+    // ---------- Drag / swipe to switch year ----------
+    var DRAG_THRESHOLD = 50;
+    var dragState = { active: false, startX: 0, moved: false };
 
+    // Mouse
     swTrack.addEventListener('mousedown', function(e) {
       dragState.active = true;
-      dragState.moved = false;
-      dragState.startX = e.pageX - swTrack.getBoundingClientRect().left;
-      dragState.scrollLeft = swTrack.scrollLeft;
+      dragState.moved  = false;
+      dragState.startX = e.pageX;
       swTrack.classList.add('is-dragging');
+      e.preventDefault(); // prevent text selection while dragging
     });
 
     document.addEventListener('mousemove', function(e) {
       if (!dragState.active) return;
-      var x = e.pageX - swTrack.getBoundingClientRect().left;
-      var walk = x - dragState.startX;
-      if (Math.abs(walk) > 3) dragState.moved = true;
-      swTrack.scrollLeft = dragState.scrollLeft - walk;
+      if (Math.abs(e.pageX - dragState.startX) > 4) dragState.moved = true;
     });
 
-    document.addEventListener('mouseup', function() {
+    document.addEventListener('mouseup', function(e) {
       if (!dragState.active) return;
+      var walk = e.pageX - dragState.startX;
       dragState.active = false;
       swTrack.classList.remove('is-dragging');
+      if (Math.abs(walk) >= DRAG_THRESHOLD) {
+        if (walk < 0 && swIdx < swYears.length - 1) swShow(swIdx + 1); // drag left → newer
+        if (walk > 0 && swIdx > 0)                  swShow(swIdx - 1); // drag right → older
+      }
     });
 
-    // Suppress dot click if the mouse actually dragged
+    // Suppress dot click when a real drag happened
     swTrack.addEventListener('click', function(e) {
-      if (dragState.moved) {
-        e.stopPropagation();
-        dragState.moved = false;
-      }
+      if (dragState.moved) { e.stopPropagation(); dragState.moved = false; }
     }, true);
+
+    // Touch
+    swTrack.addEventListener('touchstart', function(e) {
+      dragState.startX = e.touches[0].pageX;
+      dragState.moved  = false;
+    }, { passive: true });
+
+    swTrack.addEventListener('touchmove', function(e) {
+      if (Math.abs(e.touches[0].pageX - dragState.startX) > 4) dragState.moved = true;
+    }, { passive: true });
+
+    swTrack.addEventListener('touchend', function(e) {
+      var walk = e.changedTouches[0].pageX - dragState.startX;
+      if (Math.abs(walk) >= DRAG_THRESHOLD) {
+        if (walk < 0 && swIdx < swYears.length - 1) swShow(swIdx + 1);
+        if (walk > 0 && swIdx > 0)                  swShow(swIdx - 1);
+      }
+    });
   }
 
   // ---------- Image Lightbox ----------
