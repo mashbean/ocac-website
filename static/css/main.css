@@ -603,6 +603,8 @@ img { max-width: 100%; height: auto; display: block; }
 /* ==========================================================================
    Single article
    ========================================================================== */
+.article-page { padding-top: var(--space-5); }
+
 .article-header {
   padding: var(--space-6) 0;
   margin-bottom: var(--space-6);
