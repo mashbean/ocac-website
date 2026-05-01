@@ -377,14 +377,21 @@ img { max-width: 100%; height: auto; display: block; }
   aspect-ratio: 3 / 4;
 }
 
-/* Small: horizontal — left image, right text */
+/* Small: horizontal — left image (1:1), right text */
+.item-card.card-sm {
+  container-type: inline-size;
+}
 .item-card.card-sm > a {
   flex-direction: row;
 }
 .item-card.card-sm .item-thumb {
   width: 40%;
-  aspect-ratio: unset;
+  aspect-ratio: 1 / 1;
+  align-self: flex-start;
   border-radius: var(--card-radius) 0 0 var(--card-radius);
+}
+.item-card.card-sm .item-info {
+  min-height: 40cqi; /* match square thumb height */
 }
 .item-card.card-sm .item-title {
   font-size: 16px;
