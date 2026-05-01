@@ -1020,7 +1020,9 @@ img { max-width: 100%; height: auto; display: block; }
     align-self: auto;
     border-radius: var(--card-radius) var(--card-radius) 0 0;
   }
-  .item-card.card-sm .item-info { min-height: 0; }
+  .item-card.card-sm .item-info    { min-height: 0; }
+  .item-card.card-sm .item-title   { font-size: 20px; }
+  .item-card.card-sm .item-excerpt { display: block; }
 
   .article-layout { grid-template-columns: 3fr 2fr; column-gap: var(--grid-gap); }
 }
