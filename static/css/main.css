@@ -640,21 +640,12 @@ img { max-width: 100%; height: auto; display: block; }
 .article-body            { grid-column: 1; grid-row: 2; padding: 0 0 var(--space-16); }
 .article-sidebar         { grid-column: 2; grid-row: 2; }
 
-.article-featured-figure {
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-  border-radius: var(--card-radius);
-}
-.article-featured-figure .article-featured-img {
+.article-featured-img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 0;
-  margin: 0;
+  margin-bottom: var(--space-8);
+  border-radius: var(--card-radius);
+  overflow: hidden;
 }
-
-/* header card stretches to fill same row as featured image */
-.article-header { align-self: stretch; }
 
 .article-body p {
   font-size: var(--fs-body);
