@@ -149,56 +149,56 @@
 
     swShow(0);
 
-    // ---------- Drag / swipe to switch year ----------
-    var DRAG_THRESHOLD = 50;
-    var dragState = { active: false, startX: 0, moved: false };
+    // ---------- Drag the active pill along the dot track ----------
+    var isDragging = false;
 
-    // Mouse
+    // Find which dot index is closest to a given clientX
+    function dotIndexAtX(clientX) {
+      var closest = swIdx;
+      var closestDist = Infinity;
+      swDots.forEach(function(dot, i) {
+        var rect = dot.getBoundingClientRect();
+        var center = rect.left + rect.width / 2;
+        var dist = Math.abs(clientX - center);
+        if (dist < closestDist) { closestDist = dist; closest = i; }
+      });
+      return closest;
+    }
+
+    // Mouse — start drag only on the active pill
     swTrack.addEventListener('mousedown', function(e) {
-      dragState.active = true;
-      dragState.moved  = false;
-      dragState.startX = e.pageX;
+      if (!e.target.classList.contains('is-active')) return;
+      isDragging = true;
       swTrack.classList.add('is-dragging');
-      e.preventDefault(); // prevent text selection while dragging
+      e.preventDefault();
     });
 
     document.addEventListener('mousemove', function(e) {
-      if (!dragState.active) return;
-      if (Math.abs(e.pageX - dragState.startX) > 4) dragState.moved = true;
+      if (!isDragging) return;
+      var idx = dotIndexAtX(e.clientX);
+      if (idx !== swIdx) swShow(idx);
     });
 
-    document.addEventListener('mouseup', function(e) {
-      if (!dragState.active) return;
-      var walk = e.pageX - dragState.startX;
-      dragState.active = false;
+    document.addEventListener('mouseup', function() {
+      if (!isDragging) return;
+      isDragging = false;
       swTrack.classList.remove('is-dragging');
-      if (Math.abs(walk) >= DRAG_THRESHOLD) {
-        if (walk < 0 && swIdx < swYears.length - 1) swShow(swIdx + 1); // drag left → newer
-        if (walk > 0 && swIdx > 0)                  swShow(swIdx - 1); // drag right → older
-      }
     });
 
-    // Suppress dot click when a real drag happened
-    swTrack.addEventListener('click', function(e) {
-      if (dragState.moved) { e.stopPropagation(); dragState.moved = false; }
-    }, true);
-
-    // Touch
+    // Touch — start drag only on the active pill
     swTrack.addEventListener('touchstart', function(e) {
-      dragState.startX = e.touches[0].pageX;
-      dragState.moved  = false;
+      if (!e.target.classList.contains('is-active')) return;
+      isDragging = true;
     }, { passive: true });
 
     swTrack.addEventListener('touchmove', function(e) {
-      if (Math.abs(e.touches[0].pageX - dragState.startX) > 4) dragState.moved = true;
+      if (!isDragging) return;
+      var idx = dotIndexAtX(e.touches[0].clientX);
+      if (idx !== swIdx) swShow(idx);
     }, { passive: true });
 
-    swTrack.addEventListener('touchend', function(e) {
-      var walk = e.changedTouches[0].pageX - dragState.startX;
-      if (Math.abs(walk) >= DRAG_THRESHOLD) {
-        if (walk < 0 && swIdx < swYears.length - 1) swShow(swIdx + 1);
-        if (walk > 0 && swIdx > 0)                  swShow(swIdx - 1);
-      }
+    swTrack.addEventListener('touchend', function() {
+      isDragging = false;
     });
   }
 
