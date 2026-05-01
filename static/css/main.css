@@ -610,6 +610,11 @@ img { max-width: 100%; height: auto; display: block; }
   border-radius: var(--card-radius);
   padding: var(--space-5);
   align-self: stretch;
+  display: flex;
+  flex-direction: column;
+}
+.article-header .article-meta {
+  margin-top: auto;
 }
 
 .article-title {
