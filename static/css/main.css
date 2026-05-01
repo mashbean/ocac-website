@@ -516,32 +516,50 @@ img { max-width: 100%; height: auto; display: block; }
 .year-switcher {
   display: flex;
   align-items: center;
-  gap: var(--space-4);
+  margin-left: auto;
 }
-.year-arrow {
-  background: none;
+
+.year-track {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-surface);
+  border-radius: 100px;
+  padding: 8px 12px;
+}
+
+.year-dot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 8px;
+  height: 8px;
+  border-radius: 100px;
+  background: var(--color-border);
   border: none;
   cursor: pointer;
+  padding: 0;
   font-family: var(--font-en);
-  font-size: var(--fs-h3);
-  color: var(--color-text-light);
-  line-height: 1;
-  padding: 0 var(--space-1);
-  transition: color 0.2s var(--ease);
-  user-select: none;
-}
-.year-arrow:hover { color: var(--color-text); }
-.year-arrow:disabled { opacity: 0.2; cursor: default; }
-
-.year-current {
-  font-family: var(--font-en);
-  font-size: var(--fs-eyebrow);
+  font-size: 0;
   font-weight: 700;
-  letter-spacing: var(--ls-hero);
+  letter-spacing: var(--ls-label);
   text-transform: uppercase;
-  color: var(--color-text);
-  min-width: 3em;
-  text-align: center;
+  color: transparent;
+  white-space: nowrap;
+  transition: background 0.2s var(--ease), color 0.2s var(--ease),
+              font-size 0.2s var(--ease), padding 0.2s var(--ease),
+              width 0.2s var(--ease);
+}
+.year-dot:not(.is-active):hover {
+  background: var(--color-text-muted);
+}
+.year-dot.is-active {
+  background: var(--color-text);
+  color: var(--color-white);
+  font-size: var(--fs-label);
+  padding: 5px 14px;
+  width: auto;
+  height: auto;
 }
 
 /* Year stage — content area that switches */

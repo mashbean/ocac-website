@@ -95,12 +95,29 @@
   // ---------- Archive Year Switcher ----------
   var switcher = document.getElementById('year-switcher');
   if (switcher) {
-    var swYears     = switcher.dataset.years.split(',');
-    var swPrev      = document.getElementById('year-prev');
-    var swNext      = document.getElementById('year-next');
-    var swCurrent   = document.getElementById('year-current');
-    var swStage     = document.getElementById('year-stage');
-    var swIdx       = 0;
+    var swYears = switcher.dataset.years.split(',');
+    var swTrack = document.getElementById('year-track');
+    var swStage = document.getElementById('year-stage');
+    var swIdx   = 0;
+    var swDots  = [];
+
+    // Build dot buttons
+    swYears.forEach(function(year, i) {
+      var btn = document.createElement('button');
+      btn.className = 'year-dot';
+      btn.textContent = year;
+      btn.setAttribute('aria-label', year);
+      btn.addEventListener('click', function() { swShow(i); });
+      swTrack.appendChild(btn);
+      swDots.push(btn);
+    });
+
+    // Keyboard: left/right arrow keys
+    document.addEventListener('keydown', function(e) {
+      if (!document.getElementById('year-switcher')) return;
+      if (e.key === 'ArrowLeft' && swIdx > 0) swShow(swIdx - 1);
+      if (e.key === 'ArrowRight' && swIdx < swYears.length - 1) swShow(swIdx + 1);
+    });
 
     var swShow = function(idx) {
       var outgoing = swStage.querySelector('.year-section.is-active');
@@ -115,12 +132,15 @@
 
       incoming.classList.add('is-active');
       swIdx = idx;
-      swCurrent.textContent = swYears[idx];
-      fitCardSmTitles();
-      swPrev.disabled = (idx === 0);
-      swNext.disabled = (idx === swYears.length - 1);
 
-      // Scroll to top of content area (skip header + sticky bar)
+      // Update dots
+      swDots.forEach(function(d, i) {
+        d.classList.toggle('is-active', i === idx);
+      });
+
+      fitCardSmTitles();
+
+      // Scroll to top of content area
       var siteH    = (document.getElementById('site-header') || {}).offsetHeight || 52;
       var archiveH = (document.getElementById('archive-header') || {}).offsetHeight || 40;
       var stageTop = swStage.getBoundingClientRect().top + window.scrollY;
@@ -128,9 +148,6 @@
         window.scrollTo({ top: stageTop - siteH - archiveH - 8, behavior: 'smooth' });
       }
     };
-
-    swPrev.addEventListener('click', function() { swShow(swIdx - 1); });
-    swNext.addEventListener('click', function() { swShow(swIdx + 1); });
 
     swShow(0);
   }

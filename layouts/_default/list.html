@@ -11,9 +11,7 @@
     <div class="page-header archive-header" id="archive-header">
       <h1 class="page-title">{{ .Title }}</h1>
       <div class="year-switcher" id="year-switcher" data-years="{{ delimit $years "," }}">
-        <button class="year-arrow" id="year-prev" aria-label="Previous year">‹</button>
-        <span class="year-current" id="year-current"></span>
-        <button class="year-arrow" id="year-next" aria-label="Next year">›</button>
+        <div class="year-track" id="year-track"></div>
       </div>
     </div>
   </div>
