@@ -628,7 +628,7 @@ img { max-width: 100%; height: auto; display: block; }
   display: grid;
   grid-template-columns: 3fr 2fr;
   column-gap: var(--space-12);
-  row-gap: var(--space-6);
+  row-gap: 0;
 }
 /* row 1: featured image (left) + title/meta (right) */
 .article-featured-figure { grid-column: 1; grid-row: 1; margin: 0; }
