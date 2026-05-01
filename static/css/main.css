@@ -1034,6 +1034,7 @@ img { max-width: 100%; height: auto; display: block; }
     overflow: hidden;
   }
   .article-header { grid-column: 1; grid-row: 2; border-radius: 0 0 var(--card-radius) var(--card-radius); margin-bottom: var(--space-8); }
+  .article-header .article-meta { margin-top: var(--space-5); }
   .article-body            { grid-column: 1; grid-row: 3; }
   .article-sidebar         { grid-column: 1; grid-row: 4; border-top: 1px solid var(--color-border); padding-top: var(--space-6); margin-top: var(--space-6); }
   .article-title { font-size: 22px; }
