@@ -531,37 +531,28 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .year-dot {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 5px;
-  height: 5px;
   border-radius: 100px;
-  background: var(--color-border);
   border: none;
   cursor: pointer;
-  padding: 0;
+  padding: 3px 10px;
   font-family: var(--font-en);
-  font-size: 0;
+  font-size: var(--fs-eyebrow);
   font-weight: 700;
   letter-spacing: var(--ls-label);
   text-transform: uppercase;
-  color: transparent;
   white-space: nowrap;
-  transition: background 0.2s var(--ease), color 0.2s var(--ease),
-              font-size 0.2s var(--ease), padding 0.2s var(--ease),
-              width 0.2s var(--ease);
+  background: var(--color-border);
+  color: var(--color-text-muted);
+  transition: background 0.18s var(--ease), color 0.18s var(--ease);
 }
 .year-dot:not(.is-active):hover {
   background: var(--color-text-muted);
+  color: var(--color-white);
 }
 .year-dot.is-active {
   background: var(--color-text);
   color: var(--color-white);
-  font-size: var(--fs-eyebrow);
-  padding: 3px 10px;
-  width: auto;
-  height: auto;
+  cursor: default;
 }
 
 /* Year stage — content area that switches */

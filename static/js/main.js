@@ -99,7 +99,26 @@
     var swTrack = document.getElementById('year-track');
     var swStage = document.getElementById('year-stage');
     var swIdx   = 0;
-    var swDots  = [];
+
+    // Render at most 3 pills: [prev] [active] [next]
+    function buildTrack(idx) {
+      swTrack.innerHTML = '';
+      var visible = [];
+      if (idx > 0)                    visible.push(idx - 1);
+      visible.push(idx);
+      if (idx < swYears.length - 1)  visible.push(idx + 1);
+
+      visible.forEach(function(i) {
+        var pill = document.createElement('button');
+        pill.className = 'year-dot' + (i === idx ? ' is-active' : '');
+        pill.textContent = swYears[i];
+        pill.setAttribute('aria-label', swYears[i]);
+        (function(captured) {
+          pill.addEventListener('click', function() { swShow(captured); });
+        }(i));
+        swTrack.appendChild(pill);
+      });
+    }
 
     function swShow(idx) {
       var outgoing = swStage.querySelector('.year-section.is-active');
@@ -115,10 +134,7 @@
       incoming.classList.add('is-active');
       swIdx = idx;
 
-      swDots.forEach(function(d, i) {
-        d.classList.toggle('is-active', i === idx);
-      });
-
+      buildTrack(idx);
       fitCardSmTitles();
 
       var siteH    = (document.getElementById('site-header') || {}).offsetHeight || 52;
@@ -129,22 +145,11 @@
       }
     }
 
-    // Build dot buttons
-    swYears.forEach(function(year, i) {
-      var dot = document.createElement('button');
-      dot.className = 'year-dot';
-      dot.textContent = year;
-      dot.setAttribute('aria-label', year);
-      dot.addEventListener('click', function() { swShow(i); });
-      swTrack.appendChild(dot);
-      swDots.push(dot);
-    });
-
     // Keyboard left/right navigation
     document.addEventListener('keydown', function(e) {
       if (!document.getElementById('year-switcher')) return;
-      if (e.key === 'ArrowLeft' && swIdx > 0) swShow(swIdx - 1);
-      if (e.key === 'ArrowRight' && swIdx < swYears.length - 1) swShow(swIdx + 1);
+      if (e.key === 'ArrowLeft'  && swIdx > 0)                   swShow(swIdx - 1);
+      if (e.key === 'ArrowRight' && swIdx < swYears.length - 1)  swShow(swIdx + 1);
     });
 
     swShow(0);
