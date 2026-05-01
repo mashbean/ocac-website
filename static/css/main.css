@@ -380,23 +380,13 @@ img { max-width: 100%; height: auto; display: block; }
   aspect-ratio: 3 / 4;
 }
 
-/* Small: horizontal — image fills full left side */
-.item-card.card-sm > a {
-  flex-direction: row;
-  align-items: stretch;
-}
+/* Small: vertical, landscape image — creates shorter card height for column variety */
 .item-card.card-sm .item-thumb {
-  flex: 0.9;
-  aspect-ratio: 3 / 4;
-  align-self: flex-start;
-  border-radius: 0 var(--card-radius) var(--card-radius) 0; /* image on left → round right side */
-}
-.item-card.card-sm .item-info {
-  flex: 1.1;
-  padding: var(--space-5);
+  aspect-ratio: 4 / 3;
+  border-radius: 0 0 var(--card-radius) var(--card-radius);
 }
 .item-card.card-sm .item-title {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
 }
 .item-card.card-sm .item-excerpt {
@@ -948,10 +938,6 @@ img { max-width: 100%; height: auto; display: block; }
   .items-grid .item-card { margin-bottom: 0; }
   .item-card.card-md--landscape,
   .item-card.card-sm { grid-column: 1 / -1; margin-top: 0; }
-  /* card-sm: revert to vertical layout on tablet (not enough width for horizontal) */
-  .item-card.card-sm > a { flex-direction: column; }
-  .item-card.card-sm .item-thumb { flex: none; width: 100%; aspect-ratio: 4 / 3; align-self: auto; border-radius: 0 0 var(--card-radius) var(--card-radius); }
-  .item-card.card-sm .item-info { flex: none; }
   .article-layout { grid-template-columns: 1fr 200px; gap: var(--space-8); }
 }
 
@@ -1033,9 +1019,6 @@ img { max-width: 100%; height: auto; display: block; }
   .items-grid .item-card { margin-bottom: 0; }
   .item-card.card-md--landscape,
   .item-card.card-sm { grid-column: 1 / -1; margin-top: 0; }
-  .item-card.card-sm > a { flex-direction: column; }
-  .item-card.card-sm .item-thumb { flex: none; width: 100%; aspect-ratio: 4 / 3; align-self: auto; border-radius: 0 0 var(--card-radius) var(--card-radius); }
-  .item-card.card-sm .item-info { flex: none; }
   .item-card.card-sm .item-excerpt { display: -webkit-box; }
   .article-layout { grid-template-columns: 1fr; gap: 0; }
   .article-sidebar { border-top: 1px solid var(--color-border); padding-top: var(--space-6); margin-top: var(--space-6); }
