@@ -1024,10 +1024,9 @@ img { max-width: 100%; height: auto; display: block; }
   .item-card.card-md--landscape,
   .item-card.card-sm { grid-column: 1 / -1; margin-top: 0; }
   .item-card.card-sm .item-excerpt { display: -webkit-box; }
-  .article-layout { grid-template-columns: 1fr; row-gap: 0; }
-  .article-featured-figure { grid-column: 1; grid-row: 1; border-radius: var(--card-radius) var(--card-radius) 0 0; overflow: hidden; }
-  .article-featured-figure .article-featured-img { border-radius: 0; }
-  .article-header          { grid-column: 1; grid-row: 2; border-radius: 0 0 var(--card-radius) var(--card-radius); margin-bottom: var(--space-8); }
+  .article-layout { grid-template-columns: 1fr; row-gap: var(--grid-gap); }
+  .article-featured-figure { grid-column: 1; grid-row: 1; }
+  .article-header          { grid-column: 1; grid-row: 2; margin-bottom: var(--space-8); }
   .article-body            { grid-column: 1; grid-row: 3; }
   .article-sidebar         { grid-column: 1; grid-row: 4; border-top: 1px solid var(--color-border); padding-top: var(--space-6); margin-top: var(--space-6); }
   .article-title { font-size: 22px; }
