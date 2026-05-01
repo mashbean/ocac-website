@@ -381,10 +381,14 @@ img { max-width: 100%; height: auto; display: block; }
   aspect-ratio: 3 / 4;
 }
 
-/* Small: vertical, landscape image — creates shorter card height for column variety */
+/* Small: horizontal — left image, right text */
+.item-card.card-sm > a {
+  flex-direction: row;
+}
 .item-card.card-sm .item-thumb {
-  aspect-ratio: 4 / 3;
-  border-radius: 0 0 var(--card-radius) var(--card-radius);
+  width: 40%;
+  aspect-ratio: unset;
+  border-radius: var(--card-radius) 0 0 var(--card-radius);
 }
 .item-card.card-sm .item-title {
   font-size: 16px;
