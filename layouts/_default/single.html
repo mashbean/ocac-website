@@ -1,14 +1,14 @@
 {{ define "main" }}
 <div class="article-page">
-  <div class="article-header">
-    <h1 class="article-title">{{ .Title }}</h1>
-    <div class="article-meta">
-      {{ with .Params.date_range }}{{ . }}{{ else }}{{ if not .Date.IsZero }}{{ .Date.Format "2006.01.02" }}{{ end }}{{ end }}
-      {{ with .Params.artist_name }} — {{ . }}{{ end }}
-    </div>
-  </div>
-
   <div class="article-layout">
+    <header class="article-header">
+      <h1 class="article-title">{{ .Title }}</h1>
+      <div class="article-meta">
+        {{ with .Params.date_range }}{{ . }}{{ else }}{{ if not .Date.IsZero }}{{ .Date.Format "2006.01.02" }}{{ end }}{{ end }}
+        {{ with .Params.artist_name }} — {{ . }}{{ end }}
+      </div>
+    </header>
+
     <div class="article-body">
       {{ with .Params.image }}
       <img src="{{ . }}" alt="{{ $.Title }}" class="article-featured-img">
