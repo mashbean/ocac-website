@@ -626,7 +626,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 .article-layout {
   display: grid;
-  grid-template-columns: 1fr 240px;
+  grid-template-columns: 3fr 2fr;
   gap: var(--space-12);
 }
 
@@ -931,7 +931,7 @@ img { max-width: 100%; height: auto; display: block; }
   .items-grid .item-card { margin-bottom: 0; }
   .item-card.card-md--landscape,
   .item-card.card-sm { grid-column: 1 / -1; margin-top: 0; }
-  .article-layout { grid-template-columns: 1fr 200px; gap: var(--space-8); }
+  .article-layout { grid-template-columns: 3fr 2fr; gap: var(--space-8); }
 }
 
 /* ==========================================================================
