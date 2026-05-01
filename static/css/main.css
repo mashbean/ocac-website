@@ -606,8 +606,8 @@ img { max-width: 100%; height: auto; display: block; }
 .article-page { padding-top: var(--space-5); }
 
 .article-header {
-  padding: var(--space-6) 0;
-  margin-bottom: var(--space-6);
+  padding: 0 0 var(--space-6);
+  margin-bottom: 0;
 }
 
 .article-title {
