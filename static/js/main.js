@@ -148,58 +148,6 @@
     });
 
     swShow(0);
-
-    // ---------- Drag the active pill along the dot track ----------
-    var isDragging = false;
-
-    // Find which dot index is closest to a given clientX
-    function dotIndexAtX(clientX) {
-      var closest = swIdx;
-      var closestDist = Infinity;
-      swDots.forEach(function(dot, i) {
-        var rect = dot.getBoundingClientRect();
-        var center = rect.left + rect.width / 2;
-        var dist = Math.abs(clientX - center);
-        if (dist < closestDist) { closestDist = dist; closest = i; }
-      });
-      return closest;
-    }
-
-    // Mouse — start drag only on the active pill
-    swTrack.addEventListener('mousedown', function(e) {
-      if (!e.target.classList.contains('is-active')) return;
-      isDragging = true;
-      swTrack.classList.add('is-dragging');
-      e.preventDefault();
-    });
-
-    document.addEventListener('mousemove', function(e) {
-      if (!isDragging) return;
-      var idx = dotIndexAtX(e.clientX);
-      if (idx !== swIdx) swShow(idx);
-    });
-
-    document.addEventListener('mouseup', function() {
-      if (!isDragging) return;
-      isDragging = false;
-      swTrack.classList.remove('is-dragging');
-    });
-
-    // Touch — start drag only on the active pill
-    swTrack.addEventListener('touchstart', function(e) {
-      if (!e.target.classList.contains('is-active')) return;
-      isDragging = true;
-    }, { passive: true });
-
-    swTrack.addEventListener('touchmove', function(e) {
-      if (!isDragging) return;
-      var idx = dotIndexAtX(e.touches[0].clientX);
-      if (idx !== swIdx) swShow(idx);
-    }, { passive: true });
-
-    swTrack.addEventListener('touchend', function() {
-      isDragging = false;
-    });
   }
 
   // ---------- Image Lightbox ----------
