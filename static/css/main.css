@@ -504,6 +504,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 /* Archive header sits above backdrop inside the same stacking context */
 .archive-header {
+  height: 52px;
   justify-content: space-between;
   gap: var(--space-6);
   position: relative;
@@ -522,18 +523,18 @@ img { max-width: 100%; height: auto; display: block; }
 .year-track {
   display: flex;
   align-items: center;
-  gap: 8px;
-  background: var(--color-surface);
+  gap: 5px;
+  background: var(--color-bg);
   border-radius: 100px;
-  padding: 8px 12px;
+  padding: 5px 8px;
 }
 
 .year-dot {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 8px;
-  height: 8px;
+  width: 5px;
+  height: 5px;
   border-radius: 100px;
   background: var(--color-border);
   border: none;
@@ -556,8 +557,8 @@ img { max-width: 100%; height: auto; display: block; }
 .year-dot.is-active {
   background: var(--color-text);
   color: var(--color-white);
-  font-size: var(--fs-label);
-  padding: 5px 14px;
+  font-size: var(--fs-eyebrow);
+  padding: 3px 10px;
   width: auto;
   height: auto;
 }
