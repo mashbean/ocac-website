@@ -11,6 +11,15 @@ layout: "infopage"
 
 台北市大同區甘州街25號
 
+<div class="map-embed">
+  <iframe
+    src="https://maps.google.com/maps?q=台北市大同區甘州街25號&output=embed&hl=zh-TW"
+    loading="lazy"
+    allowfullscreen
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
+
 ## 開放時間
 
 星期三至星期日，下午 2:00 - 8:00。

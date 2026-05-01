@@ -9,6 +9,15 @@ layout: "infopage"
 
 No.25, Ganzhou St., Datong Dist., Taipei City 103, Taiwan (R.O.C.)
 
+<div class="map-embed">
+  <iframe
+    src="https://maps.google.com/maps?q=25+Ganzhou+St,+Datong+Dist.,+Taipei+City&output=embed&hl=en"
+    loading="lazy"
+    allowfullscreen
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
+
 **OPENING HOURS**
 
 Wednesday to Sunday, 2pm-8pm
