@@ -1140,11 +1140,11 @@ img { max-width: 100%; height: auto; display: block; }
     border-radius: 0;
     display: block;
   }
-  .article-header { grid-column: 1; grid-row: 2; border-radius: 0 0 var(--card-radius) var(--card-radius); margin-bottom: var(--space-8); padding: 5px 10px; }
-  .article-header .article-meta { margin-top: var(--space-3); }
+  .article-header { grid-column: 1; grid-row: 2; border-radius: 0 0 var(--card-radius) var(--card-radius); margin-bottom: var(--space-8); padding: 8px 12px; }
+  .article-header .article-meta { margin-top: 4px; }
   .article-body            { grid-column: 1; grid-row: 3; }
   .article-sidebar         { grid-column: 1; grid-row: 4; border-top: 1px solid var(--color-border); padding-top: var(--space-6); margin-top: var(--space-6); }
-  .article-title { font-size: 22px; }
+  .article-title { font-size: 16px; }
   .article-gallery { grid-template-columns: repeat(2, 1fr); }
   .contact-grid { grid-template-columns: 1fr; gap: var(--space-6); }
   .footer-inner { flex-direction: column; align-items: flex-start; gap: var(--space-5); }
