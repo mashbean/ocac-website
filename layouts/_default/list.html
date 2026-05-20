@@ -33,9 +33,10 @@
 
         <article class="item-card {{ $sizeClass }}">
           <a href="{{ .RelPermalink }}">
-            {{ if .Params.image }}
+            {{ $thumb := or .Params.thumbnail .Params.image }}
+            {{ if $thumb }}
             <div class="item-thumb">
-              <img src="{{ .Params.image }}" alt="{{ .Title }}" loading="lazy">
+              <img src="{{ $thumb }}" alt="{{ .Title }}" loading="lazy">
             </div>
             {{ else }}
             <div class="item-thumb item-thumb--color" style="background-color:{{ $color }};"></div>

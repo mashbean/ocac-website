@@ -50,6 +50,20 @@ defaultContentLanguageInSubdir = false
   year = "years"
   region = "regions"
 
+[related]
+  includeNewer = true
+  threshold = 60
+  toLower = true
+  [[related.indices]]
+    name = "tags"
+    weight = 40
+  [[related.indices]]
+    name = "people"
+    weight = 100
+  [[related.indices]]
+    name = "projects"
+    weight = 80
+
 [pagination]
   pagerSize = 30
 

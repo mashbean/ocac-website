@@ -50,11 +50,11 @@
       </div>
       {{ end }}
 
-      {{/* Auto-related articles by same section */}}
-      {{ $related := first 3 (where (where .Site.RegularPages "Section" .Section) "Permalink" "ne" .Permalink) }}
+      {{/* Related articles — cross-section via shared people / projects / tags */}}
+      {{ $related := first 5 (.Site.RegularPages.Related .) }}
       {{ if $related }}
       <div class="sidebar-section">
-        <h3 class="sidebar-title">{{ if eq .Lang "zh" }}更多{{ else }}More{{ end }}</h3>
+        <h3 class="sidebar-title">{{ if eq .Lang "zh" }}相關內容{{ else }}Related{{ end }}</h3>
         {{ range $related }}
         <p style="margin-bottom: 8px;"><a href="{{ .RelPermalink }}" style="font-size: 13px; line-height: 1.5; display: block;">{{ .Title }}</a></p>
         {{ end }}
