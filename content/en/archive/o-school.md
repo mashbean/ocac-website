@@ -1,8 +1,8 @@
 ---
-title: "開始日期：2017-04-21"
+title: "o-school"
 date: "2017-04-21T00:00:00+08:00"
 draft: false
 section: "archive"
-tags: ["━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"]
+tags: []
 ---
 

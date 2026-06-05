@@ -1,5 +1,5 @@
 ---
-title: "Space Sandbox: One-Work Exhibition"
+title: "project-space-sandbox"
 date: "2023-12-31T00:00:00+08:00"
 draft: false
 section: "archive"

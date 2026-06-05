@@ -1,8 +1,8 @@
 ---
-title: "開始日期：2014-02-07"
+title: "mitting"
 date: "2014-02-07T00:00:00+08:00"
 draft: false
 section: "archive"
-tags: ["━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"]
+tags: []
 ---
 

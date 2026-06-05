@@ -1,5 +1,5 @@
 ---
-title: "開始日期：2016-07-15"
+title: "co-temporary-in-indonesia-ocac-x-mes56"
 date: "2016-07-15T00:00:00+08:00"
 draft: false
 section: "archive"

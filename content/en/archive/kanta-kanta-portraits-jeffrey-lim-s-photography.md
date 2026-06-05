@@ -1,5 +1,5 @@
 ---
-title: "開始日期：2017-08-12"
+title: "kanta-kanta-portraits-jeffrey-lim-s-photography"
 date: "2017-08-12T00:00:00+08:00"
 draft: false
 section: "archive"
