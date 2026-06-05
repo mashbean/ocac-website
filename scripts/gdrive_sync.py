@@ -164,14 +164,29 @@ def yaml_escape(s: str) -> str:
 
 # ── 模板解析 ──────────────────────────────────────────────────────────────────
 
+# Google Docs 匯出純文字時，有時會把空白欄位與下一行合併。
+# 若擷取到的值以已知欄位標籤開頭，視為欄位出血（label bleed），直接拒絕。
+_FIELD_LABEL_PREFIXES: tuple = (
+    "標題", "Title", "開始日期", "結束日期", "年份標籤", "標籤",
+    "首圖檔名", "卡片縮圖", "內文圖片", "參與人員", "相關計畫",
+    "姓名", "Name", "國籍", "個人照", "新增日期",
+    "空間名稱", "Space", "封面圖", "相關人員",
+    "━", "基本資訊", "圖片", "中文", "English", "提示", "Tip",
+)
+
+
 def parse_field(text: str, *labels: str) -> str:
-    """Extract a single-line field value. Strips parenthetical hints like （格式：…）."""
+    """Extract a single-line field value. Strips parenthetical hints like （格式：…）.
+    Rejects values that start with a known field label (Google Docs line-merging artifact)."""
     for label in labels:
         m = re.search(rf"^{re.escape(label)}\s*[：:]\s*(.+)?$", text, re.MULTILINE)
         if m:
             value = (m.group(1) or "").strip()
             # Remove inline hint text in full-width parentheses
             value = re.sub(r"（[^）]{0,30}）", "", value).strip()
+            # Reject label bleed: value that starts with another field label
+            if value and any(value.startswith(p) for p in _FIELD_LABEL_PREFIXES):
+                continue
             if value:
                 return value
     return ""
@@ -275,7 +290,7 @@ def make_archive_md(text: str, slug: str, section: str, lang: str, available_ima
     thumbnail = valid_img(parse_field(text, "卡片縮圖檔名")) or ("thumb.jpg" if "thumb.jpg" in available_images else "")
     body_images = parse_multiline_field(text, "內文圖片")
 
-    title = zh_title if lang == "zh" else en_title
+    title = (zh_title if lang == "zh" else en_title) or slug
     content_header = "中文內容" if lang == "zh" else "English Content"
     content = parse_section_content(text, content_header)
     content = expand_image_paths(content, section, slug)
@@ -326,7 +341,7 @@ def make_artists_md(text: str, slug: str, section: str, lang: str, available_ima
     extra_tags_str = parse_field(text, "標籤")
     projects_str = parse_field(text, "相關計畫")
 
-    title = zh_name if lang == "zh" else en_name
+    title = (zh_name if lang == "zh" else en_name) or slug
     content_header = "中文介紹" if lang == "zh" else "English Bio"
     content = parse_section_content(text, content_header)
     content = expand_image_paths(content, section, slug)
@@ -373,7 +388,7 @@ def make_artspaces_md(text: str, slug: str, section: str, lang: str, available_i
     people_str = parse_field(text, "相關人員")
     projects_str = parse_field(text, "相關計畫")
 
-    title = zh_name if lang == "zh" else en_name
+    title = (zh_name if lang == "zh" else en_name) or slug
     content_header = "中文介紹" if lang == "zh" else "English Description"
     content = parse_section_content(text, content_header)
     content = expand_image_paths(content, section, slug)
