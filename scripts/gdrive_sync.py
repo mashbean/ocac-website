@@ -217,7 +217,14 @@ def parse_multiline_field(text: str, *labels: str) -> List[str]:
 def parse_section_content(text: str, header: str) -> str:
     """
     Extract free-form content under a named section header.
-    Stops at the next ━━━ divider.
+
+    Template format:
+      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      中文內容                            ← header
+      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  ← skip this closing divider
+                                         ← then read content...
+      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  ← stop at next section divider
+
     Skips hint lines starting with '提示：' or 'Tip:'.
     """
     m = re.search(rf"^{re.escape(header)}\s*$", text, re.MULTILINE)
@@ -227,12 +234,18 @@ def parse_section_content(text: str, header: str) -> str:
     lines = text[m.end():].splitlines()
     content_lines: List[str] = []
     started = False
+    skipped_header_divider = False  # 跳過緊接在標題後面的那條分隔線
 
     for line in lines:
         stripped = line.strip()
         if re.match(r"^━{3,}", stripped):
-            break
+            if not skipped_header_divider:
+                skipped_header_divider = True  # 跳過標題閉合分隔線
+                continue
+            else:
+                break  # 遇到下一個區塊的分隔線，停止
         if re.match(r"^(提示|Tip)[：:]", stripped):
+            skipped_header_divider = True  # 確保分隔線視為已處理
             started = True
             continue
         if not started and not stripped:
