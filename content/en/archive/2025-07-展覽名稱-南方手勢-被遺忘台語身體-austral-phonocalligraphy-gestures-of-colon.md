@@ -1,5 +1,5 @@
 ---
-title: "展覽名稱： 南方手勢：被遺忘台語身體 ｜ Austral Phonocalligraphy: Gestures of Colonial Writing"
+title: "開始日期：2025-07-02"
 date: "2025-07-02T00:00:00+08:00"
 endDate: "2025-07-13T00:00:00+08:00"
 draft: false
