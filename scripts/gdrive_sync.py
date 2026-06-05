@@ -252,7 +252,8 @@ def expand_image_paths(content: str, section: str, slug: str) -> str:
 
 # ── Hugo Markdown 生成 ────────────────────────────────────────────────────────
 
-def make_archive_md(text: str, slug: str, section: str, lang: str) -> str:
+def make_archive_md(text: str, slug: str, section: str, lang: str, available_images: Optional[Set[str]] = None) -> str:
+    available_images = available_images or set()
     zh_title = parse_field(text, "標題（中文）", "標題")
     en_title = parse_field(text, "Title（English）", "Title")
     date_str = parse_field(text, "開始日期")
@@ -261,8 +262,8 @@ def make_archive_md(text: str, slug: str, section: str, lang: str) -> str:
     extra_tags_str = parse_field(text, "標籤")
     people_str = parse_field(text, "參與人員")
     projects_str = parse_field(text, "相關計畫")
-    cover = parse_field(text, "首圖檔名")
-    thumbnail = parse_field(text, "卡片縮圖檔名")
+    cover = parse_field(text, "首圖檔名") or ("cover.jpg" if "cover.jpg" in available_images else "")
+    thumbnail = parse_field(text, "卡片縮圖檔名") or ("thumb.jpg" if "thumb.jpg" in available_images else "")
     body_images = parse_multiline_field(text, "內文圖片")
 
     title = zh_title if lang == "zh" else en_title
@@ -300,12 +301,13 @@ def make_archive_md(text: str, slug: str, section: str, lang: str) -> str:
     return fm + content
 
 
-def make_artists_md(text: str, slug: str, section: str, lang: str) -> str:
+def make_artists_md(text: str, slug: str, section: str, lang: str, available_images: Optional[Set[str]] = None) -> str:
+    available_images = available_images or set()
     zh_name = parse_field(text, "姓名（中文）", "姓名")
     en_name = parse_field(text, "Name（English）", "Name")
     nationality = parse_field(text, "國籍 / Nationality", "國籍", "Nationality")
-    portrait = parse_field(text, "個人照檔名")
-    thumbnail = parse_field(text, "卡片縮圖檔名")
+    portrait = parse_field(text, "個人照檔名") or ("cover.jpg" if "cover.jpg" in available_images else "")
+    thumbnail = parse_field(text, "卡片縮圖檔名") or ("thumb.jpg" if "thumb.jpg" in available_images else "")
     date_str = parse_field(text, "新增日期")
     extra_tags_str = parse_field(text, "標籤")
     projects_str = parse_field(text, "相關計畫")
@@ -339,13 +341,14 @@ def make_artists_md(text: str, slug: str, section: str, lang: str) -> str:
     return fm + content
 
 
-def make_artspaces_md(text: str, slug: str, section: str, lang: str) -> str:
+def make_artspaces_md(text: str, slug: str, section: str, lang: str, available_images: Optional[Set[str]] = None) -> str:
+    available_images = available_images or set()
     zh_name = parse_field(text, "空間名稱（中文）", "空間名稱")
     en_name = parse_field(text, "Space Name（English）", "Space Name")
     country = parse_field(text, "國家 / Country", "國家", "Country")
     city = parse_field(text, "城市 / City", "城市", "City")
-    cover = parse_field(text, "封面圖檔名")
-    thumbnail = parse_field(text, "卡片縮圖檔名")
+    cover = parse_field(text, "封面圖檔名") or ("cover.jpg" if "cover.jpg" in available_images else "")
+    thumbnail = parse_field(text, "卡片縮圖檔名") or ("thumb.jpg" if "thumb.jpg" in available_images else "")
     date_str = parse_field(text, "新增日期")
     extra_tags_str = parse_field(text, "標籤")
     people_str = parse_field(text, "相關人員")
@@ -427,11 +430,12 @@ def sync_article(service, section: str, article_folder: dict, dry_run: bool) -> 
             if Path(f["name"]).suffix.lower() in IMAGE_EXTENSIONS
         ]
 
+    available_images = {f["name"].lower() for f in image_files}
     maker = MAKERS[section]
     changed = False
 
     for lang in ("zh", "en"):
-        md_text = maker(text, slug, section, lang)
+        md_text = maker(text, slug, section, lang, available_images)
         target = CONTENT_DIR / lang / section / f"{slug}.md"
 
         if dry_run:
