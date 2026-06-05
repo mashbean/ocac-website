@@ -256,8 +256,13 @@ def make_archive_md(text: str, slug: str, section: str, lang: str, available_ima
     available_images = available_images or set()
     zh_title = parse_field(text, "標題（中文）", "標題")
     en_title = parse_field(text, "Title（English）", "Title")
+    _date_pattern = re.compile(r"^\d{4}-\d{2}-\d{2}$")
     date_str = parse_field(text, "開始日期")
+    if not _date_pattern.match(date_str):
+        date_str = ""
     end_date_str = parse_field(text, "結束日期（跨日才填）", "結束日期")
+    if not _date_pattern.match(end_date_str):
+        end_date_str = ""
     year_tag = parse_field(text, "年份標籤")
     extra_tags_str = parse_field(text, "標籤")
     people_str = parse_field(text, "參與人員")
@@ -309,6 +314,8 @@ def make_artists_md(text: str, slug: str, section: str, lang: str, available_ima
     portrait = parse_field(text, "個人照檔名") or ("cover.jpg" if "cover.jpg" in available_images else "")
     thumbnail = parse_field(text, "卡片縮圖檔名") or ("thumb.jpg" if "thumb.jpg" in available_images else "")
     date_str = parse_field(text, "新增日期")
+    if not re.match(r"^\d{4}-\d{2}-\d{2}$", date_str):
+        date_str = ""
     extra_tags_str = parse_field(text, "標籤")
     projects_str = parse_field(text, "相關計畫")
 
@@ -350,6 +357,8 @@ def make_artspaces_md(text: str, slug: str, section: str, lang: str, available_i
     cover = parse_field(text, "封面圖檔名") or ("cover.jpg" if "cover.jpg" in available_images else "")
     thumbnail = parse_field(text, "卡片縮圖檔名") or ("thumb.jpg" if "thumb.jpg" in available_images else "")
     date_str = parse_field(text, "新增日期")
+    if not re.match(r"^\d{4}-\d{2}-\d{2}$", date_str):
+        date_str = ""
     extra_tags_str = parse_field(text, "標籤")
     people_str = parse_field(text, "相關人員")
     projects_str = parse_field(text, "相關計畫")
