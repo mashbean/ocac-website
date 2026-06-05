@@ -1,12 +1,10 @@
 ---
-title: "Hoa Quynh presents: 'a series of moving image works by indigenous artists from Taiwan'"
+title: "Hoa Quynh presents:"
 date: "2023-07-06T00:00:00+08:00"
+endDate: "年份標籤：2023T00:00:00+08:00"
 draft: false
 section: "archive"
+image: "/images/gdrive/archive/2023-07-hoa-quynh-presents-a-series-of-moving-image-works-by-indigen/卡片縮圖檔名："
 tags: ["2023"]
-sources: ["facebook-events"]
 ---
 
-*活動日期：2023-07-06*
-
-從 7 月 06, 2023 9:00 下午到 7 月 06, 2023 11:00 下午

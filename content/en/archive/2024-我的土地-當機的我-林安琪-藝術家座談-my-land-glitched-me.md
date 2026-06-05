@@ -1,38 +1,10 @@
 ---
 title: "我的土地、當機的我 − 林安琪 藝術家座談 My Land, Glitched Me"
 date: "2024-12-31T00:00:00+08:00"
+endDate: "年份標籤：2024T00:00:00+08:00"
 draft: false
 section: "archive"
-image: "/images/reports/2024/p016-i00-8f3566e4ecb8.jpeg"
+image: "/images/gdrive/archive/2024-我的土地-當機的我-林安琪-藝術家座談-my-land-glitched-me/卡片縮圖檔名："
 tags: ["2024"]
-
-
----
-**Event (auto-generated stub; English description pending):**
-
-- Year: 2024
-- Source: OCAC 2024 annual closing report (page 16)
-
-### Original Chinese text
-
-主辦|打開-當代藝術工作站
-
-時間與地點|10/19 打開-當代藝術工作站
-
-參與者|林安琪
-
-活動性質|座談 在越南藝術團體 ba-bau AIR 的協助下,林安琪的進駐計劃從偏 遠的山區展開。她與當地黑苗族人一起生活和勞動,體驗著他 們在好客與防備之間的平衡。這段旅程也回應著她對身份認同、 族群歷史的探索,並比較族群歷史發展的脈絡,以及對身體勞動 性的感知,促使她逐步拓展女人社「保護空間」概念,並試圖開啟 和思辨一個更遼闊且具包容性的酷兒空間。
-
-蜿蜒集系列活動
-
-### Image record
-
-![](/images/reports/2024/p016-i00-8f3566e4ecb8.jpeg)
-
-![](/images/reports/2024/p016-i01-3b5f3a67dd79.jpeg)
-
-![](/images/reports/2024/p016-i02-cc47901cd61b.jpeg)
-
 ---
 
-*Compiled from OCAC’s 2024 annual closing report; text and image matching are being refined.*

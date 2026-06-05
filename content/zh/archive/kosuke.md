@@ -1,10 +1,10 @@
 ---
 title: "kosuke"
-date: 2015-08-22T04:59:50+08:00
+date: "2015-08-22T00:00:00+08:00"
+endDate: "年份標籤：T00:00:00+08:00"
 draft: false
-section: archive
-k2_id: 141
-alias: "kosuke"
-image: "/images/k2/items/cache/b8cc41f2c23fcd5970f74c3c49efafec_XL.jpg"
+section: "archive"
+image: "/images/gdrive/archive/kosuke/卡片縮圖檔名："
+tags: ["━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"]
 ---
-kosuke
+

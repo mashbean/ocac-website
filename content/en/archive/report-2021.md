@@ -1,18 +1,10 @@
 ---
 title: "2021 Year in Review"
 date: "2021-12-31T00:00:00+08:00"
+endDate: "年份標籤：2021T00:00:00+08:00"
 draft: false
 section: "archive"
-image: "/images/ui/placeholder-white.png"
-tags: ["2021", "year-review"]
-
+image: "/images/gdrive/archive/report-2021/卡片縮圖檔名："
+tags: ["2021"]
 ---
-Pandemic pivot to online and distributed programmes: 'A Fly Entering the Ocean’s Boundless Breath' online sound actions, 'Letters to the Future Archipelago' online workshop, Space Sandbox 'One-Work Exhibition', and 'A Group Self-Study' recurring gatherings.
-
-## Image record
-
-
----
-
-*This article is compiled from OCAC’s 2020–2025 annual closing reports; English translations and image–event pairings are being refined.*
 

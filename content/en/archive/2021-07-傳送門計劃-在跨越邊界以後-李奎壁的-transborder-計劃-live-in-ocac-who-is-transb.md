@@ -1,0 +1,10 @@
+---
+title: "開始日期：2021-07-14"
+date: "2021-07-14T00:00:00+08:00"
+endDate: "年份標籤：2021T00:00:00+08:00"
+draft: false
+section: "archive"
+image: "/images/gdrive/archive/2021-07-傳送門計劃-在跨越邊界以後-李奎壁的-transborder-計劃-live-in-ocac-who-is-transb/卡片縮圖檔名："
+tags: ["2021"]
+---
+
