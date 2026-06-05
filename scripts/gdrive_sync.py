@@ -280,8 +280,9 @@ def expand_image_paths(content: str, section: str, slug: str) -> str:
 
 # ── Hugo Markdown 生成 ────────────────────────────────────────────────────────
 
-def make_archive_md(text: str, slug: str, section: str, lang: str, available_images: Optional[Set[str]] = None) -> str:
-    available_images = available_images or set()
+def make_archive_md(text: str, slug: str, section: str, lang: str, available_images: Optional[List[str]] = None) -> str:
+    available_images = available_images or []
+    available_set = {f.lower() for f in available_images}
     zh_title = parse_field(text, "標題（中文）", "標題")
     en_title = parse_field(text, "Title（English）", "Title")
     _date_pattern = re.compile(r"^\d{4}-\d{2}-\d{2}$")
@@ -299,8 +300,12 @@ def make_archive_md(text: str, slug: str, section: str, lang: str, available_ima
         """只接受有圖片副檔名的值，過濾掉誤抓到的欄位標籤。"""
         return val if val and Path(val).suffix.lower() in IMAGE_EXTENSIONS else ""
 
-    cover = valid_img(parse_field(text, "首圖檔名")) or ("cover.jpg" if "cover.jpg" in available_images else "")
-    thumbnail = valid_img(parse_field(text, "卡片縮圖檔名")) or ("thumb.jpg" if "thumb.jpg" in available_images else "")
+    cover = (
+        valid_img(parse_field(text, "首圖檔名"))
+        or ("cover.jpg" if "cover.jpg" in available_set else "")
+        or next((f for f in available_images if valid_img(f)), "")  # 第一張圖作 fallback
+    )
+    thumbnail = valid_img(parse_field(text, "卡片縮圖檔名")) or ("thumb.jpg" if "thumb.jpg" in available_set else "")
     body_images = parse_multiline_field(text, "內文圖片")
 
     title = (zh_title if lang == "zh" else en_title) or slug
@@ -338,16 +343,21 @@ def make_archive_md(text: str, slug: str, section: str, lang: str, available_ima
     return fm + content
 
 
-def make_artists_md(text: str, slug: str, section: str, lang: str, available_images: Optional[Set[str]] = None) -> str:
-    available_images = available_images or set()
+def make_artists_md(text: str, slug: str, section: str, lang: str, available_images: Optional[List[str]] = None) -> str:
+    available_images = available_images or []
+    available_set = {f.lower() for f in available_images}
     zh_name = parse_field(text, "姓名（中文）", "姓名")
     en_name = parse_field(text, "Name（English）", "Name")
     nationality = parse_field(text, "國籍 / Nationality", "國籍", "Nationality")
     def valid_img(val: str) -> str:
         return val if val and Path(val).suffix.lower() in IMAGE_EXTENSIONS else ""
 
-    portrait = valid_img(parse_field(text, "個人照檔名")) or ("cover.jpg" if "cover.jpg" in available_images else "")
-    thumbnail = valid_img(parse_field(text, "卡片縮圖檔名")) or ("thumb.jpg" if "thumb.jpg" in available_images else "")
+    portrait = (
+        valid_img(parse_field(text, "個人照檔名"))
+        or ("cover.jpg" if "cover.jpg" in available_set else "")
+        or next((f for f in available_images if valid_img(f)), "")
+    )
+    thumbnail = valid_img(parse_field(text, "卡片縮圖檔名")) or ("thumb.jpg" if "thumb.jpg" in available_set else "")
     date_str = parse_field(text, "新增日期")
     if not re.match(r"^\d{4}-\d{2}-\d{2}$", date_str):
         date_str = ""
@@ -383,8 +393,9 @@ def make_artists_md(text: str, slug: str, section: str, lang: str, available_ima
     return fm + content
 
 
-def make_artspaces_md(text: str, slug: str, section: str, lang: str, available_images: Optional[Set[str]] = None) -> str:
-    available_images = available_images or set()
+def make_artspaces_md(text: str, slug: str, section: str, lang: str, available_images: Optional[List[str]] = None) -> str:
+    available_images = available_images or []
+    available_set = {f.lower() for f in available_images}
     zh_name = parse_field(text, "空間名稱（中文）", "空間名稱")
     en_name = parse_field(text, "Space Name（English）", "Space Name")
     country = parse_field(text, "國家 / Country", "國家", "Country")
@@ -392,8 +403,12 @@ def make_artspaces_md(text: str, slug: str, section: str, lang: str, available_i
     def valid_img(val: str) -> str:
         return val if val and Path(val).suffix.lower() in IMAGE_EXTENSIONS else ""
 
-    cover = valid_img(parse_field(text, "封面圖檔名")) or ("cover.jpg" if "cover.jpg" in available_images else "")
-    thumbnail = valid_img(parse_field(text, "卡片縮圖檔名")) or ("thumb.jpg" if "thumb.jpg" in available_images else "")
+    cover = (
+        valid_img(parse_field(text, "封面圖檔名"))
+        or ("cover.jpg" if "cover.jpg" in available_set else "")
+        or next((f for f in available_images if valid_img(f)), "")
+    )
+    thumbnail = valid_img(parse_field(text, "卡片縮圖檔名")) or ("thumb.jpg" if "thumb.jpg" in available_set else "")
     date_str = parse_field(text, "新增日期")
     if not re.match(r"^\d{4}-\d{2}-\d{2}$", date_str):
         date_str = ""
@@ -477,7 +492,8 @@ def sync_article(service, section: str, article_folder: dict, dry_run: bool) -> 
             if Path(f["name"]).suffix.lower() in IMAGE_EXTENSIONS
         ]
 
-    available_images = {f["name"].lower() for f in image_files}
+    # 排序後的圖片檔名列表（小寫），用於 fallback 邏輯
+    available_images = sorted(f["name"] for f in image_files)
     maker = MAKERS[section]
     changed = False
 
