@@ -6,3 +6,4 @@ section: "archive"
 tags: ["2019"]
 ---
 
+(English description pending — please translate)

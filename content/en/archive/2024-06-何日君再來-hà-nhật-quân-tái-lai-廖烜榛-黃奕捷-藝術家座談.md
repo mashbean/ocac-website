@@ -7,3 +7,4 @@ section: "archive"
 tags: ["2024"]
 ---
 
+(English description pending — please translate)

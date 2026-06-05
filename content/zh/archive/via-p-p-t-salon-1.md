@@ -6,3 +6,7 @@ section: "archive"
 tags: ["2017"]
 ---
 
+*VIA P.P.T.*（Presence Pressure Temptation）沙龍是打開—當代藝術工作站曼谷空間的駐地計畫之一，邀請打開—當代的藝術成員，以及泰國、台灣與國際藝術家於曼谷空間介紹創作、舉行講座與表演。
+
+
+第一場沙龍，打開—當代曼谷邀請了台灣藝術家[張恩滿](/zh/artists/2015-08-07-04-56-09/)，與泰國藝術家 Preeyachanok Ketsuwan 一同分享他們的創作。

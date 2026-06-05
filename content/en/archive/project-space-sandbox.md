@@ -6,3 +6,12 @@ section: "archive"
 tags: ["長期計畫"]
 ---
 
+‘Space Sandbox: One-Work Exhibition’ is a rolling programme on the ground floor of OCAC’s Ganzhou Street venue, with one-month to one-and-a-half-month slots inviting cross-disciplinary artists to experiment with a single work. Co-programmed at various points with the ‘A Group Self-Study’ community and cross-disciplinary artist Chuang Che-Wei, the space has turned into a pop-up live house, bar or fashion show — testing new auditory and visual narratives.
+
+
+
+
+---
+
+
+*This long-term project page is compiled from OCAC’s 2019–2025 closing reports; English text and image–event matching are still being refined.*

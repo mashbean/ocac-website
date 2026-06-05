@@ -6,3 +6,4 @@ section: "archive"
 tags: ["2017"]
 ---
 
+(English description pending — please translate)
