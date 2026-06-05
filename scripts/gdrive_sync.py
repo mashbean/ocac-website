@@ -267,8 +267,12 @@ def make_archive_md(text: str, slug: str, section: str, lang: str, available_ima
     extra_tags_str = parse_field(text, "標籤")
     people_str = parse_field(text, "參與人員")
     projects_str = parse_field(text, "相關計畫")
-    cover = parse_field(text, "首圖檔名") or ("cover.jpg" if "cover.jpg" in available_images else "")
-    thumbnail = parse_field(text, "卡片縮圖檔名") or ("thumb.jpg" if "thumb.jpg" in available_images else "")
+    def valid_img(val: str) -> str:
+        """只接受有圖片副檔名的值，過濾掉誤抓到的欄位標籤。"""
+        return val if val and Path(val).suffix.lower() in IMAGE_EXTENSIONS else ""
+
+    cover = valid_img(parse_field(text, "首圖檔名")) or ("cover.jpg" if "cover.jpg" in available_images else "")
+    thumbnail = valid_img(parse_field(text, "卡片縮圖檔名")) or ("thumb.jpg" if "thumb.jpg" in available_images else "")
     body_images = parse_multiline_field(text, "內文圖片")
 
     title = zh_title if lang == "zh" else en_title
@@ -311,8 +315,11 @@ def make_artists_md(text: str, slug: str, section: str, lang: str, available_ima
     zh_name = parse_field(text, "姓名（中文）", "姓名")
     en_name = parse_field(text, "Name（English）", "Name")
     nationality = parse_field(text, "國籍 / Nationality", "國籍", "Nationality")
-    portrait = parse_field(text, "個人照檔名") or ("cover.jpg" if "cover.jpg" in available_images else "")
-    thumbnail = parse_field(text, "卡片縮圖檔名") or ("thumb.jpg" if "thumb.jpg" in available_images else "")
+    def valid_img(val: str) -> str:
+        return val if val and Path(val).suffix.lower() in IMAGE_EXTENSIONS else ""
+
+    portrait = valid_img(parse_field(text, "個人照檔名")) or ("cover.jpg" if "cover.jpg" in available_images else "")
+    thumbnail = valid_img(parse_field(text, "卡片縮圖檔名")) or ("thumb.jpg" if "thumb.jpg" in available_images else "")
     date_str = parse_field(text, "新增日期")
     if not re.match(r"^\d{4}-\d{2}-\d{2}$", date_str):
         date_str = ""
@@ -354,8 +361,11 @@ def make_artspaces_md(text: str, slug: str, section: str, lang: str, available_i
     en_name = parse_field(text, "Space Name（English）", "Space Name")
     country = parse_field(text, "國家 / Country", "國家", "Country")
     city = parse_field(text, "城市 / City", "城市", "City")
-    cover = parse_field(text, "封面圖檔名") or ("cover.jpg" if "cover.jpg" in available_images else "")
-    thumbnail = parse_field(text, "卡片縮圖檔名") or ("thumb.jpg" if "thumb.jpg" in available_images else "")
+    def valid_img(val: str) -> str:
+        return val if val and Path(val).suffix.lower() in IMAGE_EXTENSIONS else ""
+
+    cover = valid_img(parse_field(text, "封面圖檔名")) or ("cover.jpg" if "cover.jpg" in available_images else "")
+    thumbnail = valid_img(parse_field(text, "卡片縮圖檔名")) or ("thumb.jpg" if "thumb.jpg" in available_images else "")
     date_str = parse_field(text, "新增日期")
     if not re.match(r"^\d{4}-\d{2}-\d{2}$", date_str):
         date_str = ""
