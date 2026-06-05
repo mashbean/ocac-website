@@ -347,6 +347,7 @@ img { max-width: 100%; height: auto; display: block; }
   background: var(--color-bg);
   flex-shrink: 0;
   border-radius: 0 0 var(--card-radius) var(--card-radius); /* round bottom corners where image meets text */
+  aspect-ratio: 4 / 3; /* default for card-md (artists/artspaces)；被各 card 類型的具體規則覆蓋 */
 }
 .item-thumb img {
   position: absolute;
