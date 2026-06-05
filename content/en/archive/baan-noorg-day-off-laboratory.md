@@ -3,6 +3,7 @@ title: "Baan Noorg : Day OFF LABoratory - Alternative Interdisciplinary Art by J
 date: "2015-07-03T00:00:00+08:00"
 draft: false
 section: "archive"
+image: "/images/gdrive/archive/baan-noorg-day-off-laboratory/dd34e32172fe0202ef287e574244e1d2_XL.jpg"
 tags: []
 ---
 

@@ -3,6 +3,7 @@ title: "群島|archipiélago"
 date: "2023-12-31T00:00:00+08:00"
 draft: false
 section: "archive"
+image: "/images/gdrive/archive/project-archipielago/p001-i00-25c85a203f41.jpeg"
 tags: ["長期計畫"]
 ---
 

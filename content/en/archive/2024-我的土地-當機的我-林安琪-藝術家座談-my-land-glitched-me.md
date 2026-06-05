@@ -3,6 +3,7 @@ title: "我的土地、當機的我 − 林安琪 藝術家座談 My Land, Glitc
 date: "2024-12-31T00:00:00+08:00"
 draft: false
 section: "archive"
+image: "/images/gdrive/archive/2024-我的土地-當機的我-林安琪-藝術家座談-my-land-glitched-me/p016-i00-8f3566e4ecb8.jpeg"
 tags: ["2024"]
 ---
 

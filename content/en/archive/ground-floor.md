@@ -3,6 +3,7 @@ title: "Ground Floor"
 date: "2001-06-01T00:00:00+08:00"
 draft: false
 section: "archive"
+image: "/images/gdrive/archive/ground-floor/85b62d4a27ea43297eb1ab349b6e06c6_XL.jpg"
 tags: []
 ---
 

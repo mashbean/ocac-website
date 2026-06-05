@@ -3,6 +3,7 @@ title: "2025 年度回顧"
 date: "2025-12-31T00:00:00+08:00"
 draft: false
 section: "archive"
+image: "/images/gdrive/archive/report-2025/p001-i00-e7eb8f43a17a.jpeg"
 tags: ["2025"]
 ---
 

@@ -3,6 +3,7 @@ title: "藝術基地－新形「ㄕˋ」V：E世代後"
 date: "2002-03-20T00:00:00+08:00"
 draft: false
 section: "archive"
+image: "/images/gdrive/archive/after-the-e/b8292acafd72142128a3481ac4b0abff_XL.jpg"
 tags: []
 ---
 

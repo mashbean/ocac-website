@@ -3,6 +3,7 @@ title: "一群人的自學"
 date: "2016-09-01T00:00:00+08:00"
 draft: false
 section: "archive"
+image: "/images/gdrive/archive/project-a-group-self-study/p020-i00-c1ea45e8a79e.jpeg"
 tags: ["2016"]
 ---
 

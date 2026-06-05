@@ -3,6 +3,7 @@ title: "2024 Year in Review"
 date: "2024-12-31T00:00:00+08:00"
 draft: false
 section: "archive"
+image: "/images/gdrive/archive/report-2024/p001-i00-33221adcb0b9.jpeg"
 tags: ["2024"]
 ---
 

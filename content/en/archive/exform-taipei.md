@@ -3,6 +3,7 @@ title: "Exform : Taipei - Kosuke Ikeda"
 date: "2015-08-22T00:00:00+08:00"
 draft: false
 section: "archive"
+image: "/images/gdrive/archive/exform-taipei/f7abac252ae5ed68121b92ba7a669d87_XL.jpg"
 tags: []
 ---
 

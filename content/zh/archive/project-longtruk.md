@@ -3,6 +3,7 @@ title: "Longtruk: in the gap, in between"
 date: "2023-09-16T00:00:00+08:00"
 draft: false
 section: "archive"
+image: "/images/gdrive/archive/project-longtruk/p017-i00-3a8a67d2212d.jpeg"
 tags: ["2023"]
 ---
 

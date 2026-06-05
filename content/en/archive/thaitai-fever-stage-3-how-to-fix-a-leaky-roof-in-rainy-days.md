@@ -3,6 +3,7 @@ title: "THAITAI FEVER - STAGE 3 | how to fix a leaky roof in rainy days"
 date: "2013-01-31T00:00:00+08:00"
 draft: false
 section: "archive"
+image: "/images/gdrive/archive/thaitai-fever-stage-3-how-to-fix-a-leaky-roof-in-rainy-days/4effff5398b13b476604d4d8450bedfd_XL.jpg"
 tags: []
 ---
 

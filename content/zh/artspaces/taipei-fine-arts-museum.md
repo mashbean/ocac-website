@@ -1,12 +1,15 @@
 ---
 title: "台北市立美術館"
-date: 2025-12-31T00:00:00+08:00
 draft: false
-section: artspaces
+section: "artspaces"
+alias: "taipei-fine-arts-museum"
 country: "Taiwan"
 ---
+
 台灣台北的公立美術館，長期主辦台北雙年展等重要當代藝術計畫。
 
+
 ---
+
 
 *條目自 2020–2025 打開-當代藝術工作站結案報告整理，介紹待後續補齊。*

@@ -3,6 +3,7 @@ title: "Un/Uttered: Asian Art Collectives in Dialogue + Micro Film Festival"
 date: "2024-02-03T00:00:00+08:00"
 draft: false
 section: "archive"
+image: "/images/gdrive/archive/project-un-uttered/p004-i00-dd0417306096.jpeg"
 tags: ["2024"]
 ---
 

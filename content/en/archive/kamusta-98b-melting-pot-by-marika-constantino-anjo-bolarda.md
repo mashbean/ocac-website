@@ -3,6 +3,7 @@ title: "KAMUSTA : 98B and Melting Pot project by Marika Constantino & Anjo Bolar
 date: "2015-07-03T00:00:00+08:00"
 draft: false
 section: "archive"
+image: "/images/gdrive/archive/kamusta-98b-melting-pot-by-marika-constantino-anjo-bolarda/0ef95987526970d668cbb7995fe36b10_XL.jpg"
 tags: []
 ---
 

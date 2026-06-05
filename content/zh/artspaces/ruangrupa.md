@@ -1,42 +1,58 @@
 ---
 title: "Ruangrupa"
-date: 2017-04-24T21:38:26+08:00
 draft: false
-section: artspaces
-k2_id: 404
+section: "artspaces"
 alias: "ruangrupa"
-image: "/images/13416885_1002746476511249_7644052590698231633_o.jpg"
+country: "城市 / City："
+image: "/images/gdrive/artspaces/ruangrupa/13416885_1002746476511249_7644052590698231633_o.jpg"
 ---
-![](images/13416885_1002746476511249_7644052590698231633_o.jpg)
+
+![](/images/gdrive/artspaces/ruangrupa/images/13416885_1002746476511249_7644052590698231633_o.jpg)
+
 
 你們曾經做過什麼樣的事件？
 
+
 我們做過各種事（只要能做的所有事情），從展覽、出版、研究、藝術節、學生論壇、支援系統、工作坊、討論會、音樂節、電影放映、派對、踢足球等等。
+
 
 對於當地的當代藝術發展，你們有什麼樣的期待？
 
+
 印尼的當代藝術圈持續地在轉變，雖然我們一直還在追求別的事物來營造完美的狀態。政府有更多的支援，給年輕創作者的藝術空間日增，大眾的意識也提升中，並有更多藝術實踐與大眾來連結或相關聯。
 
-![](images/04-1024x576.jpg)
+
+![](/images/gdrive/artspaces/ruangrupa/images/04-1024x576.jpg)
+
 
 你們曾經與其他藝術空間合作嗎？
 
+
 有，我們現在的狀態就是如此。我們共同於一個大型倉庫並共名其為 Gudang Sarinah Ekosistem（gudangsarinah.com），與其他處於雅加達的團體共同移動、運用、並分享資源（例如：Serrum、Forum Lenteng、Grafis Huru Hara）。
+
 
 請簡單敘述你們的組織編制。成員都是藝術家嗎？
 
+
 2014年底，我們管理的團隊從30-40人減低到現在約10人。但實際上，我們的實踐是在擴展中。當我們說「我們」，我們現在不僅指 ruangrupa；我們是一個不可定義的混沌整體，有時連我們自己對於我們如何營運都覺得很神秘，我們還在重新釐清。不是所有的成員都是藝術家，有一些是音樂家、建築師、作家、或是老師等。
 
-![](images/15195894_1133576366761592_7032702755027310879_o.jpg)
+
+![](/images/gdrive/artspaces/ruangrupa/images/15195894_1133576366761592_7032702755027310879_o.jpg)
+
 
 你們有實體空間嗎？是否開放參觀呢？
 
+
 有，我們現在在 Gudang Sarinah Ekosistem 裡，是開放24小時7天的空間，所有人都可以來參訪。
+
 
 平常是誰在維護空間呢？
 
+
 Ruangrupa 與 Serrum 和 Forum Lenteng 一起創建叫 RURU Corps 的工作分支，目前是由他們來負責空間營運。
 
+
 [http://ruangrupa.org/15/](http://ruangrupa.org/15/)
+
 
 [gudangsarinah.com](gudangsarinah.com)

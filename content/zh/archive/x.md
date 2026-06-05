@@ -3,6 +3,7 @@ title: "身體顯像－即興影像創作 X 實驗電子聲響"
 date: "2010-07-15T00:00:00+08:00"
 draft: false
 section: "archive"
+image: "/images/gdrive/archive/x/11ff9b4c887cc2e009006cc7fd3aeb4c_XL.jpg"
 tags: []
 ---
 
