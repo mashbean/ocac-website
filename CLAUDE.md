@@ -2,6 +2,8 @@
 
 > 本站為 Hugo 靜態網站，部署於 Cloudflare Pages，原始碼位於 GitHub `mashbean/ocac-website`。
 > push 到 `main` 後 Cloudflare 會在數十秒內自動重建部署。
+>
+> 進行版面/CSS/視覺調整前，請先參考 [`docs/design-guide.md`](docs/design-guide.md)（精簡版設計品味指引）。
 
 ---
 
